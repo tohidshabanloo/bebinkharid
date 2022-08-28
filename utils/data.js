@@ -1,10 +1,15 @@
 const data = {
+  images: [{ image: "/images/shirt1.jpg" }, { image: "/images/shirt2.jpg" }],
   products: [
     {
       name: "تی شرت جوتی پیراهن مردانه راه راه برند پی لس ",
       slug: "free-shirt",
       category: "Shirts",
       image: "/images/shirt1.jpg",
+      images: [
+        { image: "/images/shirt1.jpg" },
+        { image: "/images/shirt2.jpg" },
+      ],
       price: "70,000",
       brand: "Brand Payless",
       rating: 4.5,

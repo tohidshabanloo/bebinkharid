@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 import Layout from "../../components/Layout";
+import Slider from "../../components/Slider";
 import data from "../../utils/data";
 
 export default function ProductScreen() {
@@ -17,15 +18,16 @@ export default function ProductScreen() {
       <div className="py-2 border border-white-200 rounded-2xl p-2 w-max mb-5 ">
         <Link href="/"> بازگشت به صفحه محصولات </Link>
       </div>
-      <div className="grid md:grid-cols-4 md:gap-3">
+      <div className="">
         <div className="md:col-span-2">
-          <Image
+          {/* <Image
             src={product.image}
             alt={product.name}
             width={640}
             height={640}
             layout="responsive"
-          ></Image>
+          ></Image> */}
+          <Slider />
         </div>
         <div>
           <ul>
