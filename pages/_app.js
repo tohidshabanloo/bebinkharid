@@ -1,11 +1,14 @@
 import "../styles/globals.css";
 import "../styles/font.css";
+import { StoreProvide } from "../utils/Store";
 
 function MyApp({ Component, pageProps }) {
   return (
     <div dir="rtl">
       <main className="container">
-        <Component {...pageProps} />
+        <StoreProvide>
+          <Component {...pageProps} />
+        </StoreProvide>
       </main>
     </div>
   );

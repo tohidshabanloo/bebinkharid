@@ -37,8 +37,8 @@ export default function Slider() {
             <img src={product.image} />
           </SwiperSlide>
         ))}
-
-        {/* <SwiperSlide>
+        {/* 
+        <SwiperSlide>
           <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
         </SwiperSlide>
         <SwiperSlide>
