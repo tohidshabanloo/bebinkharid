@@ -11,49 +11,58 @@ import "swiper/css/navigation";
 // import "./styles.css";
 
 // import required modules
-import { EffectFlip, Pagination, Navigation } from "swiper";
+import { Navigation } from "swiper";
 import data from "../utils/data";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
+import ProductItem from "./ProductItem";
+import Link from "next/link";
 
-export default function Slider() {
-  const { query } = useRouter();
-  const { slug } = query;
-  const product = data.products.find((x) => x.slug === slug);
-  if (!product) {
-    return <div>محصول مورد نظر یافت نشد!</div>;
-  }
+const Slider = () => {
   return (
     <>
       <Swiper
-        effect={"flip"}
-        grabCursor={true}
-        pagination={true}
-        navigation={true}
-        modules={[EffectFlip, Pagination, Navigation]}
+        navigation={{ clickable: true }}
+        pagination={{
+          clickable: true,
+        }}
+        breakpoints={{
+          0: {
+            slidesPerView: 1,
+            spaceBetween: 2,
+          },
+          300: {
+            slidesPerView: 1.5,
+            spaceBetween: 5,
+          },
+          500: {
+            slidesPerView: 2.5,
+            spaceBetween: 5,
+          },
+          640: {
+            slidesPerView: 3.5,
+            spaceBetween: 6,
+          },
+          768: {
+            slidesPerView: 3.5,
+            spaceBetween: 8,
+          },
+          1024: {
+            slidesPerView: 5.5,
+            spaceBetween: 8,
+          },
+        }}
+        modules={[Navigation]}
         className="mySwiper"
       >
-        {data.products.map((product) => (
-          <SwiperSlide product={product} key={product.slug}>
-            <img src={product.image} />
-          </SwiperSlide>
+        {data.products.map((product, index) => (
+          <Link key={index}>
+            <SwiperSlide>
+              <ProductItem product={product} key={index} />
+            </SwiperSlide>
+          </Link>
         ))}
-        {/* 
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-        </SwiperSlide> */}
       </Swiper>
     </>
   );
-}
+};
+export default Slider;

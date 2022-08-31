@@ -1,7 +1,7 @@
 const data = {
   products: [
     {
-      name: "تی شرت جوتی پیراهن مردانه راه راه برند پی لس ",
+      name: "تی شرت جوتی  مردانه برند پی لس ",
       slug: "free-shirt",
       category: "Shirts",
       image: "/images/shirt1.jpg",
@@ -61,11 +61,11 @@ const data = {
       description: "A popular pants",
     },
     {
-      name: "Classic Pants",
+      name: "شلوار مردانه برند پی لس ",
       slug: "classic-pants",
       category: "Pants",
       image: "/images/pants3.jpg",
-      price: 75,
+      price: 75000,
       brand: "Casely",
       rating: 2.4,
       numReviews: 14,
