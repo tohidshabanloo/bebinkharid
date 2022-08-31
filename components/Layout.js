@@ -5,7 +5,7 @@ import React, { useContext } from "react";
 import { Store } from "../utils/Store";
 
 const Layout = ({ children, title }) => {
-  const { state, dispatch } = useContext(Store);
+  const { state } = useContext(Store);
   const { cart } = state;
   return (
     <div>
