@@ -3,8 +3,12 @@ import Head from "next/head";
 import Link from "next/link";
 import React, { useContext, useEffect, useState } from "react";
 import { Store } from "../utils/Store";
+import { ToastContainer } from "react-toastify";
+import { useSession } from "next-auth/react";
+import "react-toastify/dist/ReactToastify.css";
 
 const Layout = ({ children, title }) => {
+  const { status, data: session } = useSession();
   const { state } = useContext(Store);
   const { cart } = state;
   const [cartItemsCount, setCartItemsCount] = useState(0);
@@ -19,6 +23,7 @@ const Layout = ({ children, title }) => {
         <meta name="description" content="Ecommerce Website" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <ToastContainer position="bottom-center" limit={1} />
       <div className="flex min-h-screen w-screen flex-col justify-between ">
         <header>
           <nav className="flex h-12 items-center px-4 justify-between shadow-md">
@@ -54,25 +59,34 @@ const Layout = ({ children, title }) => {
                   کارت{" "}
                 </a>
               </Link>
-              <Link href="/login">
-                <a className="flex col mt-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="w-5 h-5"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
-                    />
-                  </svg>
-                  ورود | ثبت‌نام
-                </a>
-              </Link>
+
+              {status === "loading" ? (
+                <div className="flex col mt-2">پردازش ...</div>
+              ) : session?.user ? (
+                <div className="flex col mt-2">
+                  {session.user.name} عزیز خوش آمدید
+                </div>
+              ) : (
+                <Link href="/login">
+                  <a className="flex col mt-2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                      className="w-5 h-5"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+                      />
+                    </svg>
+                    ورود | ثبت‌نام
+                  </a>
+                </Link>
+              )}
             </div>
           </nav>
         </header>
