@@ -19,7 +19,7 @@ const Layout = ({ children, title }) => {
         <meta name="description" content="Ecommerce Website" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="flex min-h-screen flex-col justify-between ">
+      <div className="flex min-h-screen w-screen flex-col justify-between ">
         <header>
           <nav className="flex h-12 items-center px-4 justify-between shadow-md">
             <div className="flex justify-between gap-4">
@@ -29,7 +29,7 @@ const Layout = ({ children, title }) => {
               </Link>
             </div>
 
-            <div className="flex gap-4">
+            <div className="flex gap-4 px-4">
               <Link href="/cart">
                 <a className="flex col mt-2">
                   {cartItemsCount > 0 && (
@@ -76,7 +76,7 @@ const Layout = ({ children, title }) => {
             </div>
           </nav>
         </header>
-        <main className="container m-auto mt-4 px-4">{children}</main>
+        <main className="container m-auto mt-4 px-4 pl-8">{children}</main>
         <footer className="flex h-10 justify-center items-center shadow-inner">
           <p>فروشگاه ببین خرید - 1401</p>
         </footer>

@@ -13,7 +13,7 @@ const data = {
       description: "A popular shirt",
     },
     {
-      name: "پیراهن مردانه جوتی جینز",
+      name: " برند پی لس پیراهن مردانه جوتی جینز",
       slug: "fit-shirt",
       category: "Shirts",
       image: "/images/shirt2.jpg",
@@ -61,7 +61,7 @@ const data = {
       description: "A popular pants",
     },
     {
-      name: "شلوار مردانه برند پی لس ",
+      name: "شلوار برند پی لس مردانه برند پی لس ",
       slug: "classic-pants",
       category: "Pants",
       image: "/images/pants3.jpg",
