@@ -35,8 +35,8 @@ function CartScreen() {
               <thead className="border-b">
                 <tr>
                   <th className="px=5 text-right">نوع کالا</th>
-                  <th className="p-5 text-right">تعداد</th>
-                  <th className="p-5  text-right">قیمت کالا (تومان)</th>
+                  <th className="p-5 text-left">تعداد</th>
+                  <th className="p-5  text-right">قیمت کالا</th>
                   <th className="p-5  text-right">حذف کالا</th>
                 </tr>
               </thead>
@@ -85,10 +85,10 @@ function CartScreen() {
               </tbody>
             </table>
           </div>
-          <div className="card p-5 ">
+          <div className="card p-5">
             <ul>
               <li>
-                <div className="pb-3 text-xl ">
+                <div className="pb-3 text-l text-center">
                   قیمت نهایی تعداد (
                   {cartItems.reduce((a, c) => a + c.quantity, 0)} محصول) :{" "}
                   <div className="text-center pt-10 text-red-500 ">
