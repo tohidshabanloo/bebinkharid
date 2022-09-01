@@ -70,7 +70,7 @@ const Layout = ({ children, title }) => {
                       d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
                     />
                   </svg>
-                  ورود
+                  ورود | ثبت‌نام
                 </a>
               </Link>
             </div>
@@ -78,7 +78,7 @@ const Layout = ({ children, title }) => {
         </header>
         <main className="container m-auto mt-4 px-4 pl-8">{children}</main>
         <footer className="flex h-10 justify-center items-center shadow-inner">
-          <p>فروشگاه ببین خرید - 1401</p>
+          <p>فروشگاه ببین خرید © 1401</p>
         </footer>
       </div>
     </div>
