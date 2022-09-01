@@ -1,15 +1,15 @@
 import React from "react";
 import Layout from "../components/Layout";
 import Link from "next/link";
-import { useForm } from "react-hook-form";
+import { UseForm } from "react-hook-form";
 
 export default function loginScreen() {
   const {
     handleSubmit,
     register,
     formState: { errors },
-  } = useForm();
-  const submitHandler = ({ email, password }) => {};
+  } = UseForm();
+  const submitHandler = () => {};
   return (
     <Layout title={"ورود"}>
       <form
