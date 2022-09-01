@@ -3,7 +3,7 @@ import Layout from "../components/Layout";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 
-export default function loginScreen() {
+export default function LoginScreen() {
   const {
     handleSubmit,
     register,
