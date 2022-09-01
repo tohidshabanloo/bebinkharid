@@ -1,12 +1,17 @@
 /* eslint-disable @next/next/no-img-element */
 import Head from "next/head";
 import Link from "next/link";
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Store } from "../utils/Store";
 
 const Layout = ({ children, title }) => {
   const { state } = useContext(Store);
   const { cart } = state;
+  const [cartItemsCount, setCartItemsCount] = useState(0);
+  useEffect(() => {
+    setCartItemsCount(cart.cartItems.reduce((a, c) => a + c.quantity, 0));
+  }, [cart.cartItems]);
+
   return (
     <div>
       <Head>
@@ -27,9 +32,9 @@ const Layout = ({ children, title }) => {
             <div className="flex gap-4">
               <Link href="/cart">
                 <a className="flex col mt-2">
-                  {cart.cartItems.length > 0 && (
+                  {cartItemsCount > 0 && (
                     <span className="ml-0 mt-1 rounded-full bg-red-600 px-2 py-1 text-xs font-bold text-white">
-                      {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
+                      {cartItemsCount}
                     </span>
                   )}
                   <svg
