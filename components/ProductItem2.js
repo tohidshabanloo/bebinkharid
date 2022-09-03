@@ -2,7 +2,7 @@
 import Link from "next/link";
 import React from "react";
 
-const ProductItem = ({ product }) => {
+const ProductItem2 = ({ product }) => {
   return (
     <div className="card">
       <Link href={`/product/${product.slug}`}>
@@ -30,4 +30,4 @@ const ProductItem = ({ product }) => {
   );
 };
 
-export default ProductItem;
+export default ProductItem2;

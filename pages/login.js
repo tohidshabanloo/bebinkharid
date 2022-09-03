@@ -67,7 +67,7 @@ export default function LoginScreen() {
           )}
         </div>
         <div className="mb-4">
-          <lable htmlFor="password"> پسورد</lable>
+          <lable htmlFor="password"> رمز ورود</lable>
           <input
             type="password"
             {...register("password", {

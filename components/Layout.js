@@ -125,9 +125,22 @@ const Layout = ({ children, title }) => {
             </div>
           </nav>
         </header>
-        <main className="container m-auto mt-4 px-4 pl-8">{children}</main>
-        <footer className="flex h-10 justify-center items-center shadow-inner">
-          <p>فروشگاه ببین خرید © 1401</p>
+        <main className="container m-auto mt-4 px-2 pl-8">{children}</main>
+        <footer className="h-10 justify-between items-center shadow-inner bg-green-50  pt-2">
+          <div className="flex justify-between">
+            <div className="mr-10">فروشگاه اینترنتی ببین خرید</div>
+            <div className="ml-10">
+              توسط {""}
+              <a
+                className="text-orange-700"
+                href="https://www.tohidsh.com"
+                target="_blank"
+                rel="noreferrer"
+              >
+                توحید شعبانلو
+              </a>
+            </div>
+          </div>
         </footer>
       </div>
     </div>
