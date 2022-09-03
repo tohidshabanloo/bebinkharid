@@ -12,7 +12,7 @@ import "swiper/css/navigation";
 
 // import required modules
 import { Navigation } from "swiper";
-import data from "../utils/data";
+import dataNew from "../utils/dataNew";
 // import { useRouter } from "next/router";
 import ProductItem2 from "./ProductItem2";
 import Link from "next/link";
@@ -54,7 +54,7 @@ const Slider2 = () => {
         modules={[Navigation]}
         className="mySwiper"
       >
-        {data.products.map((product, index) => (
+        {dataNew.products.map((product, index) => (
           <Link key={index}>
             <SwiperSlide>
               <ProductItem2 product={product} key={index} />
