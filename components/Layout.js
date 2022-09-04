@@ -75,9 +75,9 @@ const Layout = ({ children, title }) => {
                 <div className="flex col mt-2">
                   <Menu as="div" className="relative inline-block">
                     <Menu.Button className="text-yellow-600">
-                      {session.user.name} عزیز خوش آمدید
+                      {session.user.name}
                     </Menu.Button>
-                    <Menu.Items className="absolute right-0 w-56 origin-top-right bg-white shadow-lg text-black ">
+                    <Menu.Items className="absolute left-0 w-56  origin-top-right bg-green-200 shadow-lg text-black ">
                       <Menu.Item>
                         <DropdownLink href="/profile" className="dropdown-link">
                           پروفایل

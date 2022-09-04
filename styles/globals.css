@@ -43,6 +43,9 @@ a {
 .primary-button {
   @apply rounded bg-green-700 py-2 px-4 shadow outline-none hover:bg-green-800 active:bg-green-900 text-white;
 }
+.default-button {
+  @apply rounded bg-orange-700 py-2 px-4 shadow outline-none hover:bg-green-800 active:bg-green-900 text-white;
+}
 
 input,
 select,
