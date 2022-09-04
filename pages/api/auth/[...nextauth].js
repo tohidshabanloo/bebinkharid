@@ -20,13 +20,13 @@ export default NextAuth({
       return session;
     },
   },
+  secret: process.env.SECRET,
   providers: [
     CredentialsProvider({
       async authorize(credentials) {
         await db.connect();
         const user = await User.findOne({
           email: credentials.email,
-          secret: process.env.SECRET,
         });
         await db.disconnect();
         if (user && bcryptjs.compareSync(credentials.password, user.password)) {
