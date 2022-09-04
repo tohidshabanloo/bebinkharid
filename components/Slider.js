@@ -17,7 +17,7 @@ import data from "../utils/data";
 import ProductItem from "./ProductItem";
 import Link from "next/link";
 
-const Slider = () => {
+const Slider = ({ children }) => {
   return (
     <>
       <Swiper
@@ -54,13 +54,7 @@ const Slider = () => {
         modules={[Navigation]}
         className="mySwiper"
       >
-        {data.products.map((product, index) => (
-          <Link key={index}>
-            <SwiperSlide>
-              <ProductItem product={product} key={index} />
-            </SwiperSlide>
-          </Link>
-        ))}
+        {children}
       </Swiper>
     </>
   );

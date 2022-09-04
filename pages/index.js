@@ -10,6 +10,7 @@ import db from "../utils/db";
 import { Store } from "../utils/Store";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { SwiperSlide } from "swiper/react";
 // import data from "../utils/data";
 
 export default function Home({ products }) {
@@ -30,15 +31,7 @@ export default function Home({ products }) {
   return (
     <Layout title="فروشگاه اینترنتی ببین خرید">
       {/* original code */}
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4">
-        {products.map((product) => (
-          <ProductItem
-            product={product}
-            key={product.slug}
-            addToCartHandler={addToCartHandler}
-          />
-        ))}
-      </div>
+
       <div className="bg-green-400 rounded-xl">
         <div className="flex p-3  justify-between">
           <h2>جدیدترین محصولات</h2>
@@ -49,7 +42,18 @@ export default function Home({ products }) {
           </button>
         </div>
         <div className="bg-white pt-1">
-          <Slider />
+          <Slider>
+            {products.map((product) => (
+              <Link key={product.slug}>
+                <SwiperSlide>
+                  <ProductItem
+                    product={product}
+                    addToCartHandler={addToCartHandler}
+                  />
+                </SwiperSlide>
+              </Link>
+            ))}
+          </Slider>
         </div>
       </div>
 
@@ -63,7 +67,18 @@ export default function Home({ products }) {
           </button>
         </div>
         <div className="bg-white pt-1">
-          <Slider2 />
+          <Slider>
+            {products.map((product) => (
+              <Link key={product.slug}>
+                <SwiperSlide>
+                  <ProductItem
+                    product={product}
+                    addToCartHandler={addToCartHandler}
+                  />
+                </SwiperSlide>
+              </Link>
+            ))}
+          </Slider>
         </div>
       </div>
     </Layout>
