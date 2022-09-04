@@ -1,4 +1,4 @@
-import { decodeBase64 } from "bcryptjs";
+// import { decodeBase64 } from "bcryptjs";
 import Link from "next/link";
 import { useContext } from "react";
 import Layout from "../components/Layout";
@@ -20,7 +20,7 @@ export default function Home({ products }) {
     const quantity = existItem ? existItem.quantity + 1 : 1;
     const { data } = await axios.get(`/api/products/${product._id}`);
 
-    if (product.countInStock < quantity) {
+    if (data.countInStock < quantity) {
       return toast.error("متاسفانه تعداد درخواستی در انبار موجود نمی باشد");
     }
 
