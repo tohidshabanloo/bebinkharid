@@ -52,3 +52,5 @@ const Slider = ({ children }) => {
   );
 };
 export default Slider;
+
+

@@ -27,6 +27,14 @@ export default function Home({ products }) {
     dispatch({ type: "CART_ADD_ITEM", payload: { ...product, quantity } });
     toast.success("محصول به سبد خرید اضافه شد");
   };
+
+  let categoriesToFilterBy = ["woman"];
+  let filterSet = new Set(categoriesToFilterBy);
+  let filteredProducts = products.filter((product) =>
+    filterSet.has(product.category)
+  );
+  console.log(filteredProducts);
+
   return (
     <Layout title="فروشگاه اینترنتی ببین خرید">
       {/* original code */}
@@ -67,7 +75,7 @@ export default function Home({ products }) {
         </div>
         <div className="bg-white pt-1">
           <Slider>
-            {products.map((product) => (
+            {filteredProducts.map((product) => (
               <Link key={product.slug}>
                 <SwiperSlide>
                   <ProductItem
