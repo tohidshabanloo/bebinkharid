@@ -1,21 +1,13 @@
 // import React, { useRef, useState } from "react";
 // Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper } from "swiper/react";
 
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/effect-flip";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-// import "./styles.css";
-
-// import required modules
 import { Navigation } from "swiper";
-import data from "../utils/data";
-// import { useRouter } from "next/router";
-import ProductItem from "./ProductItem";
-import Link from "next/link";
 
 const Slider = ({ children }) => {
   return (

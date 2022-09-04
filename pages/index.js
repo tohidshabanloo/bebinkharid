@@ -4,7 +4,6 @@ import { useContext } from "react";
 import Layout from "../components/Layout";
 import ProductItem from "../components/ProductItem";
 import Slider from "../components/Slider";
-import Slider2 from "../components/Slider 2";
 import Product from "../models/Product";
 import db from "../utils/db";
 import { Store } from "../utils/Store";
