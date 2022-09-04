@@ -2,7 +2,7 @@
 import Link from "next/link";
 import React from "react";
 
-const ProductItem = ({ product }) => {
+const ProductItem = ({ product, addToCartHandler }) => {
   return (
     <div className="card">
       <Link href={`/product/${product.slug}`}>
@@ -22,7 +22,11 @@ const ProductItem = ({ product }) => {
         </Link>
         <p className="mb-2 text-orange-700">{product.brand}</p>
         <p className="text-green-700">{product.price} تومان</p>
-        <button className="primary-button  text-black mt-5" type="button">
+        <button
+          className="primary-button  text-black mt-5"
+          type="button"
+          onClick={() => addToCartHandler(product)}
+        >
           اضافه کردن به کارت
         </button>
       </div>
