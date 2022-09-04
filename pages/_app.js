@@ -1,7 +1,8 @@
 import "../styles/globals.css";
 import "../styles/font.css";
-import { SessionProvider } from "next-auth/react";
+import { SessionProvider, useSession } from "next-auth/react";
 import { StoreProvide } from "../utils/Store";
+import { useRouter } from "next/router";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   return (
@@ -9,12 +10,35 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
       <main className="container">
         <SessionProvider session={session}>
           <StoreProvide>
-            <Component {...pageProps} />
+            {Component.auth ? (
+              <Auth>
+                <Component {...pageProps} />
+              </Auth>
+            ) : (
+              <Component {...pageProps} />
+            )}
           </StoreProvide>
         </SessionProvider>
       </main>
     </div>
   );
 }
+function Auth({ children }) {
+  const router = useRouter();
 
+  const { status, data: session } = useSession({
+    required: true,
+    onUnauthenticated() {
+      router.push("/unauthorized?message=ابتدا باید وارد سایت شوید");
+    },
+  });
+  if (status === "loading") {
+    return <div>بارگزاری...</div>;
+  }
+  // if (adminOnly && !session.user.isAdmin) {
+  //   router.push("/unauthorized?message=admin login required");
+  // }
+
+  return children;
+}
 export default MyApp;
