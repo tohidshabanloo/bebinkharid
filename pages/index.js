@@ -39,7 +39,7 @@ export default function Home({ products }) {
     <Layout title="فروشگاه اینترنتی ببین خرید">
       {/* original code */}
 
-      <div className="bg-green-400 rounded-xl">
+      <div className="bg-green-500 text-white  rounded-xl">
         <div className="flex p-3  justify-between">
           <h2>جدیدترین محصولات</h2>
           <button className="btn">
@@ -64,7 +64,7 @@ export default function Home({ products }) {
         </div>
       </div>
 
-      <div className="bg-red-200 rounded-xl">
+      <div className="bg-orange-500 text-white rounded-xl">
         <div className="flex p-3  justify-between">
           <h2>پرفروش ترین محصولات</h2>
           <button className="btn">

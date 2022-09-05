@@ -41,10 +41,10 @@ a {
   @apply mb-5  block rounded-2xl  border-gray-700 shadow-md;
 }
 .primary-button {
-  @apply rounded bg-green-700 py-2 px-4 shadow outline-none hover:bg-green-800 active:bg-green-900 text-white;
+  @apply rounded bg-green-500 py-2 px-4 shadow outline-none hover:bg-green-600 active:bg-green-600 text-white;
 }
 .default-button {
-  @apply rounded bg-orange-700 py-2 px-4 shadow outline-none hover:bg-green-800 active:bg-green-900 text-white;
+  @apply rounded bg-orange-500 py-2 px-4 shadow outline-none hover:bg-green-600 active:bg-green-600 text-white;
 }
 
 input,
@@ -54,5 +54,5 @@ textarea {
 }
 
 .dropdown-link {
-  @apply flex p-2 hover:bg-gray-200;
+  @apply flex p-2 text-black;
 }

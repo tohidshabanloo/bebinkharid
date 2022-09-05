@@ -20,7 +20,7 @@ const ProductItem = ({ product, addToCartHandler }) => {
             <h2 className="text-lg text-center">{product.name}</h2>
           </a>
         </Link>
-        <p className="mb-2 text-orange-700">{product.brand}</p>
+        <p className="mb-2 text-orange-500">{product.brand}</p>
         <p className="text-green-700">{product.price} تومان</p>
         <button
           className="primary-button  text-black mt-5"
