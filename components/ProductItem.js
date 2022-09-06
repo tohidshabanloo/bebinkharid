@@ -17,13 +17,13 @@ const ProductItem = ({ product, addToCartHandler }) => {
       <div className="flex flex-col items-center justify-center p-5">
         <Link href={`/product/${product.slug}`}>
           <a>
-            <h2 className="text-lg text-center">{product.name}</h2>
+            <h2 className="text-sm text-center">{product.name}</h2>
           </a>
         </Link>
-        <p className="mb-2 text-orange-500">{product.brand}</p>
-        <p className="text-green-700">{product.price} تومان</p>
+        <p className="mb-2 text-orange-500 text-sm">{product.brand}</p>
+        <p className="text-green-700 text-sm">{product.price} تومان</p>
         <button
-          className="primary-button  text-black mt-5"
+          className="primary-button text-sm text-black mt-2"
           type="button"
           onClick={() => addToCartHandler(product)}
         >

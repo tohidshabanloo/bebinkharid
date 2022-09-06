@@ -28,12 +28,17 @@ export default function Home({ products }) {
     toast.success("محصول به سبد خرید اضافه شد");
   };
 
-  let categoriesToFilterBy = ["woman"];
-  let filterSet = new Set(categoriesToFilterBy);
-  let filteredProducts = products.filter((product) =>
-    filterSet.has(product.category)
+  let categoriesToFilterBywoman = ["woman"];
+  let filterSetwoman = new Set(categoriesToFilterBywoman);
+  let filterForWoman = products.filter((product) =>
+    filterSetwoman.has(product.category)
   );
-  console.log(filteredProducts);
+
+  let categoriesToFilterByman = ["man"];
+  let filterSetman = new Set(categoriesToFilterByman);
+  let filterForMan = products.filter((product) =>
+    filterSetman.has(product.category)
+  );
 
   return (
     <Layout title="فروشگاه اینترنتی ببین خرید">
@@ -63,10 +68,9 @@ export default function Home({ products }) {
           </Slider>
         </div>
       </div>
-
       <div className="bg-orange-500 text-white rounded-xl">
         <div className="flex p-3  justify-between">
-          <h2>پرفروش ترین محصولات</h2>
+          <h2> پرفروش ترین محصولات مردانه</h2>
           <button className="btn">
             <Link href="/latest" passHref>
               <h4>نمایش همه ...</h4>
@@ -75,7 +79,31 @@ export default function Home({ products }) {
         </div>
         <div className="bg-white pt-1">
           <Slider>
-            {filteredProducts.map((product) => (
+            {filterForMan.map((product) => (
+              <Link key={product.slug}>
+                <SwiperSlide>
+                  <ProductItem
+                    product={product}
+                    addToCartHandler={addToCartHandler}
+                  />
+                </SwiperSlide>
+              </Link>
+            ))}
+          </Slider>
+        </div>
+      </div>
+      <div className="bg-pink-500 text-white rounded-xl">
+        <div className="flex p-3  justify-between">
+          <h2> پرفروش ترین محصولات زنانه</h2>
+          <button className="btn">
+            <Link href="/latest" passHref>
+              <h4>نمایش همه ...</h4>
+            </Link>
+          </button>
+        </div>
+        <div className="bg-white pt-1">
+          <Slider>
+            {filterForWoman.map((product) => (
               <Link key={product.slug}>
                 <SwiperSlide>
                   <ProductItem
