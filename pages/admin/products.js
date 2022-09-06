@@ -1,32 +1,32 @@
-import axios from 'axios';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import React, { useEffect, useReducer } from 'react';
-import { toast } from 'react-toastify';
-import Layout from '../../components/Layout';
-import { getError } from '../../utils/error';
+import axios from "axios";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import React, { useEffect, useReducer } from "react";
+import { toast } from "react-toastify";
+import Layout from "../../components/Layout";
+import { getError } from "../../utils/error";
 
 function reducer(state, action) {
   switch (action.type) {
-    case 'FETCH_REQUEST':
-      return { ...state, loading: true, error: '' };
-    case 'FETCH_SUCCESS':
-      return { ...state, loading: false, products: action.payload, error: '' };
-    case 'FETCH_FAIL':
+    case "FETCH_REQUEST":
+      return { ...state, loading: true, error: "" };
+    case "FETCH_SUCCESS":
+      return { ...state, loading: false, products: action.payload, error: "" };
+    case "FETCH_FAIL":
       return { ...state, loading: false, error: action.payload };
-    case 'CREATE_REQUEST':
+    case "CREATE_REQUEST":
       return { ...state, loadingCreate: true };
-    case 'CREATE_SUCCESS':
+    case "CREATE_SUCCESS":
       return { ...state, loadingCreate: false };
-    case 'CREATE_FAIL':
+    case "CREATE_FAIL":
       return { ...state, loadingCreate: false };
-    case 'DELETE_REQUEST':
+    case "DELETE_REQUEST":
       return { ...state, loadingDelete: true };
-    case 'DELETE_SUCCESS':
+    case "DELETE_SUCCESS":
       return { ...state, loadingDelete: false, successDelete: true };
-    case 'DELETE_FAIL':
+    case "DELETE_FAIL":
       return { ...state, loadingDelete: false };
-    case 'DELETE_RESET':
+    case "DELETE_RESET":
       return { ...state, loadingDelete: false, successDelete: false };
 
     default:
@@ -42,53 +42,53 @@ export default function AdminProdcutsScreen() {
   ] = useReducer(reducer, {
     loading: true,
     products: [],
-    error: '',
+    error: "",
   });
 
   const createHandler = async () => {
-    if (!window.confirm('Are you sure?')) {
+    if (!window.confirm("آیا اطمینان دارید؟")) {
       return;
     }
     try {
-      dispatch({ type: 'CREATE_REQUEST' });
+      dispatch({ type: "CREATE_REQUEST" });
       const { data } = await axios.post(`/api/admin/products`);
-      dispatch({ type: 'CREATE_SUCCESS' });
-      toast.success('Product created successfully');
+      dispatch({ type: "CREATE_SUCCESS" });
+      toast.success("Product created successfully");
       router.push(`/admin/product/${data.product._id}`);
     } catch (err) {
-      dispatch({ type: 'CREATE_FAIL' });
+      dispatch({ type: "CREATE_FAIL" });
       toast.error(getError(err));
     }
   };
   useEffect(() => {
     const fetchData = async () => {
       try {
-        dispatch({ type: 'FETCH_REQUEST' });
+        dispatch({ type: "FETCH_REQUEST" });
         const { data } = await axios.get(`/api/admin/products`);
-        dispatch({ type: 'FETCH_SUCCESS', payload: data });
+        dispatch({ type: "FETCH_SUCCESS", payload: data });
       } catch (err) {
-        dispatch({ type: 'FETCH_FAIL', payload: getError(err) });
+        dispatch({ type: "FETCH_FAIL", payload: getError(err) });
       }
     };
 
     if (successDelete) {
-      dispatch({ type: 'DELETE_RESET' });
+      dispatch({ type: "DELETE_RESET" });
     } else {
       fetchData();
     }
   }, [successDelete]);
 
   const deleteHandler = async (productId) => {
-    if (!window.confirm('Are you sure?')) {
+    if (!window.confirm("Are you sure?")) {
       return;
     }
     try {
-      dispatch({ type: 'DELETE_REQUEST' });
+      dispatch({ type: "DELETE_REQUEST" });
       await axios.delete(`/api/admin/products/${productId}`);
-      dispatch({ type: 'DELETE_SUCCESS' });
-      toast.success('Product deleted successfully');
+      dispatch({ type: "DELETE_SUCCESS" });
+      toast.success("Product deleted successfully");
     } catch (err) {
-      dispatch({ type: 'DELETE_FAIL' });
+      dispatch({ type: "DELETE_FAIL" });
       toast.error(getError(err));
     }
   };
@@ -98,35 +98,35 @@ export default function AdminProdcutsScreen() {
         <div>
           <ul>
             <li>
-              <Link href="/admin/dashboard">Dashboard</Link>
+              <Link href="/admin/dashboard">- داشبورد</Link>
             </li>
             <li>
-              <Link href="/admin/orders">Orders</Link>
+              <Link href="/admin/orders">- سفارشات</Link>
             </li>
             <li>
               <Link href="/admin/products">
-                <a className="font-bold">Products</a>
+                <a className="font-bold">- محصولات</a>
               </Link>
             </li>
             <li>
-              <Link href="/admin/users">Users</Link>
+              <Link href="/admin/users">- کاربران</Link>
             </li>
           </ul>
         </div>
         <div className="overflow-x-auto md:col-span-3">
           <div className="flex justify-between">
-            <h1 className="mb-4 text-xl">Products</h1>
+            <h1 className="mb-4 text-xl">لیست محصولات</h1>
             {loadingDelete && <div>Deleting item...</div>}
             <button
               disabled={loadingCreate}
               onClick={createHandler}
               className="primary-button"
             >
-              {loadingCreate ? 'Loading' : 'Create'}
+              {loadingCreate ? "در حال لود شدن ..." : "+ ایجاد محصول جدید"}
             </button>
           </div>
           {loading ? (
-            <div>Loading...</div>
+            <div>در حال لود شدن ...</div>
           ) : error ? (
             <div className="alert-error">{error}</div>
           ) : (
@@ -134,13 +134,13 @@ export default function AdminProdcutsScreen() {
               <table className="min-w-full">
                 <thead className="border-b">
                   <tr>
-                    <th className="px-5 text-left">ID</th>
-                    <th className="p-5 text-left">NAME</th>
-                    <th className="p-5 text-left">PRICE</th>
-                    <th className="p-5 text-left">CATEGORY</th>
-                    <th className="p-5 text-left">COUNT</th>
-                    <th className="p-5 text-left">RATING</th>
-                    <th className="p-5 text-left">ACTIONS</th>
+                    <th className="px-5 text-right">شناسه</th>
+                    <th className="p-5 text-right">اسم</th>
+                    <th className="p-5 text-right">قیمت</th>
+                    <th className="p-5 text-right">دسته </th>
+                    <th className="p-5 text-right">موجودی</th>
+                    <th className="p-5 text-right">امتیاز</th>
+                    <th className="p-5 text-right">حذف/ویرایش</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -148,23 +148,26 @@ export default function AdminProdcutsScreen() {
                     <tr key={product._id} className="border-b">
                       <td className=" p-5 ">{product._id.substring(20, 24)}</td>
                       <td className=" p-5 ">{product.name}</td>
-                      <td className=" p-5 ">${product.price}</td>
+                      <td className=" p-5 ">{product.price} تومان</td>
                       <td className=" p-5 ">{product.category}</td>
                       <td className=" p-5 ">{product.countInStock}</td>
                       <td className=" p-5 ">{product.rating}</td>
                       <td className=" p-5 ">
                         <Link href={`/admin/product/${product._id}`}>
-                          <a type="button" className="default-button">
-                            Edit
+                          <a
+                            type="button"
+                            className="bg-blue-500 text-white p-1"
+                          >
+                            ویرایش
                           </a>
                         </Link>
                         &nbsp;
                         <button
                           onClick={() => deleteHandler(product._id)}
-                          className="default-button"
+                          className="bg-red-500 text-white p-1"
                           type="button"
                         >
-                          Delete
+                          حذف
                         </button>
                       </td>
                     </tr>
