@@ -174,7 +174,7 @@ const Layout = ({ children, title }) => {
 
                         <Menu.Item>
                           <DropdownLink
-                            href="/profile"
+                            href="/order-history"
                             className="dropdown-link"
                           >
                             <svg
