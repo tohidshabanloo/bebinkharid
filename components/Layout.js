@@ -71,9 +71,9 @@ const Layout = ({ children, title }) => {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <ToastContainer position="bottom-center" limit={1} />
-        <div className="flex min-h-screen w-screen flex-col justify-between ">
+        <div className="flexmin-h-screen w-screen flex-col justify-between ">
           <header>
-            <nav className="flex h-12 items-center px-4 justify-between shadow-md">
+            <nav className="flex  h-12 items-center px-4 justify-between shadow-md">
               <div className="flex justify-between gap-4">
                 <img width={25} height={20} src="/images/logo.png" alt="" />
                 <Link href="/">
@@ -244,7 +244,9 @@ const Layout = ({ children, title }) => {
               </div>
             </nav>
           </header>
-          <main className="container m-auto mt-4 px-2 pl-2">{children}</main>
+          <main className="container m-auto mt-4 px-4">
+            {children}
+          </main>
 
           <footer className="h-10 justify-between items-center shadow-inner bg-green-50  pt-2">
             <div className="flex justify-between">
