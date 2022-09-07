@@ -3,6 +3,7 @@ import Cookies from "js-cookie";
 export const Store = createContext();
 
 const initialState = {
+  darkMode: Cookies.get("darkMode") === "ON" ? true : false,
   cart: Cookies.get("cart")
     ? JSON.parse(Cookies.get("cart"))
     : { cartItems: [], shippingAddress: {}, paymentMethod: "" },
