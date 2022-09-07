@@ -10,6 +10,10 @@ const initialState = {
 
 function reducer(state, action) {
   switch (action.type) {
+    case "DARK_MODE_ON":
+      return { ...state, darkMode: true };
+    case "DARK_MODE_OFF":
+      return { ...state, darkMode: false };
     case "CART_ADD_ITEM": {
       const newItem = action.payload;
       const existItem = state.cart.cartItems.find(
