@@ -1,16 +1,16 @@
-import axios from 'axios';
-import Link from 'next/link';
-import React, { useEffect, useReducer } from 'react';
-import Layout from '../../components/Layout';
-import { getError } from '../../utils/error';
+import axios from "axios";
+import Link from "next/link";
+import React, { useEffect, useReducer } from "react";
+import Layout from "../../components/Layout";
+import { getError } from "../../utils/error";
 
 function reducer(state, action) {
   switch (action.type) {
-    case 'FETCH_REQUEST':
-      return { ...state, loading: true, error: '' };
-    case 'FETCH_SUCCESS':
-      return { ...state, loading: false, orders: action.payload, error: '' };
-    case 'FETCH_FAIL':
+    case "FETCH_REQUEST":
+      return { ...state, loading: true, error: "" };
+    case "FETCH_SUCCESS":
+      return { ...state, loading: false, orders: action.payload, error: "" };
+    case "FETCH_FAIL":
       return { ...state, loading: false, error: action.payload };
     default:
       state;
@@ -21,48 +21,48 @@ export default function AdminOrderScreen() {
   const [{ loading, error, orders }, dispatch] = useReducer(reducer, {
     loading: true,
     orders: [],
-    error: '',
+    error: "",
   });
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        dispatch({ type: 'FETCH_REQUEST' });
+        dispatch({ type: "FETCH_REQUEST" });
         const { data } = await axios.get(`/api/admin/orders`);
-        dispatch({ type: 'FETCH_SUCCESS', payload: data });
+        dispatch({ type: "FETCH_SUCCESS", payload: data });
       } catch (err) {
-        dispatch({ type: 'FETCH_FAIL', payload: getError(err) });
+        dispatch({ type: "FETCH_FAIL", payload: getError(err) });
       }
     };
     fetchData();
   }, []);
 
   return (
-    <Layout title="Admin Dashboard">
+    <Layout title="سفارشات کاربران">
       <div className="grid md:grid-cols-4 md:gap-5">
         <div>
           <ul>
             <li>
-              <Link href="/admin/dashboard">Dashboard</Link>
+              <Link href="/admin/dashboard">- داشبورد</Link>
             </li>
             <li>
               <Link href="/admin/orders">
-                <a className="font-bold">Orders</a>
+                <a className="font-bold">- سفارشات</a>
               </Link>
             </li>
             <li>
-              <Link href="/admin/products">Products</Link>
+              <Link href="/admin/products">- محصولات</Link>
             </li>
             <li>
-              <Link href="/admin/users">Users</Link>
+              <Link href="/admin/users">- کاربران</Link>
             </li>
           </ul>
         </div>
         <div className="overflow-x-auto md:col-span-3">
-          <h1 className="mb-4 text-xl">Admin Orders</h1>
+          <h1 className="mb-4 text-xl">سفارشات کاربران</h1>
 
           {loading ? (
-            <div>Loading...</div>
+            <div>در حال پردازش...</div>
           ) : error ? (
             <div className="alert-error">{error}</div>
           ) : (
@@ -70,13 +70,13 @@ export default function AdminOrderScreen() {
               <table className="min-w-full">
                 <thead className="border-b">
                   <tr>
-                    <th className="px-5 text-left">ID</th>
-                    <th className="p-5 text-left">USER</th>
-                    <th className="p-5 text-left">DATE</th>
-                    <th className="p-5 text-left">TOTAL</th>
-                    <th className="p-5 text-left">PAID</th>
-                    <th className="p-5 text-left">DELIVERED</th>
-                    <th className="p-5 text-left">ACTION</th>
+                    <th className="px-5 text-right">شناسه</th>
+                    <th className="p-5 text-right">کاربر</th>
+                    <th className="p-5 text-right">تاریخ</th>
+                    <th className="p-5 text-right">قیمت</th>
+                    <th className="p-5 text-right">وضعیت پرداخت</th>
+                    <th className="p-5 text-right">وضعیت ارسال</th>
+                    <th className="p-5 text-right">جزئیات</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -84,7 +84,7 @@ export default function AdminOrderScreen() {
                     <tr key={order._id} className="border-b">
                       <td className="p-5">{order._id.substring(20, 24)}</td>
                       <td className="p-5">
-                        {order.user ? order.user.name : 'DELETED USER'}
+                        {order.user ? order.user.name : "کاربر حذف شده"}
                       </td>
                       <td className="p-5">
                         {order.createdAt.substring(0, 10)}
@@ -93,16 +93,16 @@ export default function AdminOrderScreen() {
                       <td className="p-5">
                         {order.isPaid
                           ? `${order.paidAt.substring(0, 10)}`
-                          : 'not paid'}
+                          : "پرداخت نشده"}
                       </td>
                       <td className="p-5">
                         {order.isDelivered
                           ? `${order.deliveredAt.substring(0, 10)}`
-                          : 'not delivered'}
+                          : "ارسال نشده"}
                       </td>
                       <td className="p-5">
                         <Link href={`/order/${order._id}`} passHref>
-                          <a>Details</a>
+                          <a>نمایش جزئیات</a>
                         </Link>
                       </td>
                     </tr>
