@@ -73,17 +73,25 @@ function AdminUsersScreen() {
         <div>
           <ul>
             <li>
-              <Link href="/admin/dashboard">- داشبورد</Link>
+              <Link href="/admin/dashboard">
+                <p>- داشبورد</p>
+              </Link>
             </li>
             <li>
-              <Link href="/admin/orders">- سفارشات</Link>
+              <Link href="/admin/orders">
+                <p>- سفارشات</p>
+              </Link>
             </li>
             <li>
-              <Link href="/admin/products">- محصولات</Link>
+              <Link href="/admin/products">
+                <p>- محصولات</p>
+              </Link>
             </li>
             <li>
               <Link href="/admin/users">
-                <a className="font-bold">- کاربران</a>
+                <a className="font-bold">
+                  <p>- کاربران</p>
+                </a>
               </Link>
             </li>
           </ul>
