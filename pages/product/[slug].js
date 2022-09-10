@@ -11,6 +11,10 @@ import axios from "axios";
 import db from "../../utils/db";
 import { Store } from "../../utils/Store";
 import { toast } from "react-toastify";
+import Slider from "../../components/Slider";
+import { SwiperSlide } from "swiper/react";
+
+import ProductItemImages from "../../components/ProductItemImages";
 
 export default function ProductScreen(props) {
   const { product } = props;
@@ -45,8 +49,8 @@ export default function ProductScreen(props) {
       <div className="py-2 border border-white-200 rounded-2xl p-2 w-max mb-5 ">
         <Link href="/"> بازگشت به صفحه محصولات </Link>
       </div>
-      <div className="grid md:grid-cols-4 md:gap-3">
-        <div className=" md:col-span-2">
+      <div className="">
+        <div className=" md:col-span-1">
           <Image
             src={product.image}
             alt={product.name}
@@ -54,7 +58,8 @@ export default function ProductScreen(props) {
             height={640}
             layout="responsive"
           ></Image>
-          {/* <Slider /> */}
+
+          <ProductItemImages product={product} />
         </div>
         <div>
           <ul>

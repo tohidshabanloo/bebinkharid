@@ -55,16 +55,19 @@ export default function Home({ products }) {
         </div>
         <div className="bg-white pt-1">
           <Slider>
-            {products.map((product) => (
-              <Link key={product.slug}>
-                <SwiperSlide>
-                  <ProductItem
-                    product={product}
-                    addToCartHandler={addToCartHandler}
-                  />
-                </SwiperSlide>
-              </Link>
-            ))}
+            {products.map(
+              (product, index) =>
+                index < 10 && (
+                  <Link key={product.slug}>
+                    <SwiperSlide>
+                      <ProductItem
+                        product={product}
+                        addToCartHandler={addToCartHandler}
+                      />
+                    </SwiperSlide>
+                  </Link>
+                )
+            )}
           </Slider>
         </div>
       </div>
@@ -79,16 +82,19 @@ export default function Home({ products }) {
         </div>
         <div className="bg-white pt-1">
           <Slider>
-            {filterForMan.map((product) => (
-              <Link key={product.slug}>
-                <SwiperSlide>
-                  <ProductItem
-                    product={product}
-                    addToCartHandler={addToCartHandler}
-                  />
-                </SwiperSlide>
-              </Link>
-            ))}
+            {filterForMan.map(
+              (product, index) =>
+                index < 10 && (
+                  <Link key={product.slug}>
+                    <SwiperSlide>
+                      <ProductItem
+                        product={product}
+                        addToCartHandler={addToCartHandler}
+                      />
+                    </SwiperSlide>
+                  </Link>
+                )
+            )}
           </Slider>
         </div>
       </div>
@@ -103,16 +109,19 @@ export default function Home({ products }) {
         </div>
         <div className="bg-white pt-1">
           <Slider>
-            {filterForWoman.map((product) => (
-              <Link key={product.slug}>
-                <SwiperSlide>
-                  <ProductItem
-                    product={product}
-                    addToCartHandler={addToCartHandler}
-                  />
-                </SwiperSlide>
-              </Link>
-            ))}
+            {filterForWoman.map(
+              (product, index) =>
+                index < 10 && (
+                  <Link key={product.slug}>
+                    <SwiperSlide>
+                      <ProductItem
+                        product={product}
+                        addToCartHandler={addToCartHandler}
+                      />
+                    </SwiperSlide>
+                  </Link>
+                )
+            )}
           </Slider>
         </div>
       </div>
