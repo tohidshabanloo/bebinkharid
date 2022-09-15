@@ -7,25 +7,23 @@ import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   return (
-    <>
-      <div dir="rtl">
-        <main className="container">
-          <SessionProvider session={session}>
-            <StoreProvide>
-              <PayPalScriptProvider deferLoading={true}>
-                {Component.auth ? (
-                  <Auth>
-                    <Component {...pageProps} />
-                  </Auth>
-                ) : (
+    <div dir="rtl">
+      <main className="container">
+        <SessionProvider session={session}>
+          <StoreProvide>
+            <PayPalScriptProvider deferLoading={true}>
+              {Component.auth ? (
+                <Auth>
                   <Component {...pageProps} />
-                )}
-              </PayPalScriptProvider>
-            </StoreProvide>
-          </SessionProvider>
-        </main>
-      </div>
-    </>
+                </Auth>
+              ) : (
+                <Component {...pageProps} />
+              )}
+            </PayPalScriptProvider>
+          </StoreProvide>
+        </SessionProvider>
+      </main>
+    </div>
   );
 }
 function Auth({ children }) {

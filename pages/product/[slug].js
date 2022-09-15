@@ -12,9 +12,6 @@ import db from "../../utils/db";
 import { Store } from "../../utils/Store";
 import { toast } from "react-toastify";
 
-
-import ProductItemImages from "../../components/ProductItemImages";
-
 export default function ProductScreen(props) {
   const { product } = props;
   const { state, dispatch } = useContext(Store);
@@ -57,8 +54,6 @@ export default function ProductScreen(props) {
             height={640}
             layout="responsive"
           ></Image>
-
-          <ProductItemImages product={product} />
         </div>
         <div>
           <ul>
