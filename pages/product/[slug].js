@@ -11,8 +11,7 @@ import axios from "axios";
 import db from "../../utils/db";
 import { Store } from "../../utils/Store";
 import { toast } from "react-toastify";
-import Slider from "../../components/Slider";
-import { SwiperSlide } from "swiper/react";
+
 
 import ProductItemImages from "../../components/ProductItemImages";
 
