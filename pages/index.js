@@ -10,6 +10,7 @@ import { Store } from "../utils/Store";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { SwiperSlide } from "swiper/react";
+
 // import data from "../utils/data";
 
 export default function Home({ products }) {
@@ -41,91 +42,92 @@ export default function Home({ products }) {
   );
 
   return (
-    <Layout title="فروشگاه اینترنتی ببین خرید">
-      {/* original code */}
-
-      <div className="bg-green-500 text-white  rounded-xl">
-        <div className="flex p-3  justify-between">
-          <h2>جدیدترین محصولات</h2>
-          <button className="btn">
-            <Link href="/latest" passHref>
-              <h4>نمایش همه ...</h4>
-            </Link>
-          </button>
+    <>
+      <Layout title="فروشگاه اینترنتی ببین خرید">
+        {/* original code */}
+        <div className="bg-green-500 text-white  rounded-xl">
+          <div className="flex p-3  justify-between">
+            <h2>جدیدترین محصولات</h2>
+            <button className="btn">
+              <Link href="/latest" passHref>
+                <h4>نمایش همه ...</h4>
+              </Link>
+            </button>
+          </div>
+          <div className="bg-white pt-1">
+            <Slider>
+              {products.map(
+                (product, index) =>
+                  index < 10 && (
+                    <Link key={product.slug}>
+                      <SwiperSlide>
+                        <ProductItem
+                          product={product}
+                          addToCartHandler={addToCartHandler}
+                        />
+                      </SwiperSlide>
+                    </Link>
+                  )
+              )}
+            </Slider>
+          </div>
         </div>
-        <div className="bg-white pt-1">
-          <Slider>
-            {products.map(
-              (product, index) =>
-                index < 10 && (
-                  <Link key={product.slug}>
-                    <SwiperSlide>
-                      <ProductItem
-                        product={product}
-                        addToCartHandler={addToCartHandler}
-                      />
-                    </SwiperSlide>
-                  </Link>
-                )
-            )}
-          </Slider>
+        <div className="bg-orange-500 text-white rounded-xl">
+          <div className="flex p-3  justify-between">
+            <h2> پرفروش ترین محصولات مردانه</h2>
+            <button className="btn">
+              <Link href="/latest" passHref>
+                <h4>نمایش همه ...</h4>
+              </Link>
+            </button>
+          </div>
+          <div className="bg-white pt-1">
+            <Slider>
+              {filterForMan.map(
+                (product, index) =>
+                  index < 10 && (
+                    <Link key={product.slug}>
+                      <SwiperSlide>
+                        <ProductItem
+                          product={product}
+                          addToCartHandler={addToCartHandler}
+                        />
+                      </SwiperSlide>
+                    </Link>
+                  )
+              )}
+            </Slider>
+          </div>
         </div>
-      </div>
-      <div className="bg-orange-500 text-white rounded-xl">
-        <div className="flex p-3  justify-between">
-          <h2> پرفروش ترین محصولات مردانه</h2>
-          <button className="btn">
-            <Link href="/latest" passHref>
-              <h4>نمایش همه ...</h4>
-            </Link>
-          </button>
+        <div className="bg-pink-500 text-white rounded-xl">
+          <div className="flex p-3  justify-between">
+            <h2> پرفروش ترین محصولات زنانه</h2>
+            <button className="btn">
+              <Link href="/latest" passHref>
+                <h4>نمایش همه ...</h4>
+              </Link>
+            </button>
+          </div>
+          <div className="bg-white pt-1">
+            <Slider>
+              {filterForWoman.map(
+                (product, index) =>
+                  index < 10 && (
+                    <Link key={product.slug}>
+                      <SwiperSlide>
+                        <ProductItem
+                          product={product}
+                          addToCartHandler={addToCartHandler}
+                        />
+                      </SwiperSlide>
+                    </Link>
+                  )
+              )}
+            </Slider>
+          </div>
         </div>
-        <div className="bg-white pt-1">
-          <Slider>
-            {filterForMan.map(
-              (product, index) =>
-                index < 10 && (
-                  <Link key={product.slug}>
-                    <SwiperSlide>
-                      <ProductItem
-                        product={product}
-                        addToCartHandler={addToCartHandler}
-                      />
-                    </SwiperSlide>
-                  </Link>
-                )
-            )}
-          </Slider>
-        </div>
-      </div>
-      <div className="bg-pink-500 text-white rounded-xl">
-        <div className="flex p-3  justify-between">
-          <h2> پرفروش ترین محصولات زنانه</h2>
-          <button className="btn">
-            <Link href="/latest" passHref>
-              <h4>نمایش همه ...</h4>
-            </Link>
-          </button>
-        </div>
-        <div className="bg-white pt-1">
-          <Slider>
-            {filterForWoman.map(
-              (product, index) =>
-                index < 10 && (
-                  <Link key={product.slug}>
-                    <SwiperSlide>
-                      <ProductItem
-                        product={product}
-                        addToCartHandler={addToCartHandler}
-                      />
-                    </SwiperSlide>
-                  </Link>
-                )
-            )}
-          </Slider>
-        </div>
-      </div>
-    </Layout>
+      </Layout>
+    </>
   );
 }
 

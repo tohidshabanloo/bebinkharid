@@ -16,6 +16,7 @@ import {
   ThemeProvider,
   CssBaseline,
 } from "@material-ui/core";
+import Banner from "./banner";
 
 const Layout = ({ children, title }) => {
   const { status, data: session } = useSession();
@@ -68,10 +69,12 @@ const Layout = ({ children, title }) => {
         <meta name="description" content="Ecommerce Website" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <ToastContainer position="bottom-center" limit={1} />
         <div className="flexmin-h-screen w-screen flex-col justify-between ">
+        <Banner link={"/"} desc={"فروش تمامی محصولات با تخفیف 80 درصدی"} />
           <header>
             <nav className="flex  h-12 items-center px-4 justify-between shadow-md">
               <div className="flex justify-between gap-4">
@@ -244,9 +247,7 @@ const Layout = ({ children, title }) => {
               </div>
             </nav>
           </header>
-          <main className="container m-auto mt-4 px-4">
-            {children}
-          </main>
+          <main className="container m-auto mt-4 px-4">{children}</main>
 
           <footer className="h-10 justify-between items-center shadow-inner bg-green-50  pt-2">
             <div className="flex justify-between">
