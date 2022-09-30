@@ -94,7 +94,6 @@ export default function Home({ products }) {
                         />
                       </SwiperSlide>
                     </Link>
-                    <p>asdasdasdsad</p>
                   )
               )}
             </Slider>
