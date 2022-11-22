@@ -44,7 +44,7 @@ const Layout = ({ children, title }) => {
         <div className="flex min-h-screen w-screen flex-col justify-between ">
           <Banner link={"/"} desc={"فروش تمامی محصولات با تخفیف 80 درصدی"} />
           <header
-            className="sticky z-10 top-0 p-3 backdrop-filter sm:backdrop-blur-lg  w-full mx-auto my-0 text-gray-900
+            className="sticky z-10 top-0  backdrop-filter sm:backdrop-blur-lg  w-full mx-auto my-0 text-gray-900
       bg-gray-200 dark:bg-gray-800 shadow-lg md:shadow-none bg-opacity-100 md:bg-opacity-60 md:dark:bg-opacity-60 dark:text-gray-100 md:firefox:bg-opacity-100 md:dark:firefox:bg-opacity-100"
           >
             <nav className="flex h-12 items-center px-4 justify-between ">
@@ -201,7 +201,7 @@ const Layout = ({ children, title }) => {
                   </div>
                 ) : (
                   <Link href="/login">
-                    <a className="flex col mt-2">
+                    <a className="text-gray-800 dark:text-gray-200   flex col mt-2">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -225,13 +225,16 @@ const Layout = ({ children, title }) => {
           </header>
           <main className="container m-auto mt-4 px-4">{children}</main>
 
-          <footer className="h-10 justify-between items-center shadow-inner bg-green-50  pt-2">
+          <footer
+            className="h-10 justify-between bg-gray-200 dark:bg-gray-800 text-gray-900
+      md:shadow-none bg-opacity-100 md:bg-opacity-60 md:dark:bg-opacity-60 dark:text-gray-100 items-center   pt-2"
+          >
             <div className="flex justify-between">
               <div className="mr-10">فروشگاه اینترنتی ببین خرید</div>
               <div className="ml-10">
                 توسط {""}
                 <a
-                  className="text-orange-700"
+                  className="text-orange-500"
                   href="https://www.tohidsh.com"
                   target="_blank"
                   rel="noreferrer"
