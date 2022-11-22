@@ -45,7 +45,7 @@ export default function Home({ products }) {
     <>
       <Layout title="فروشگاه اینترنتی ببین خرید">
         {/* original code */}
-        <div className="  text-white  rounded-xl">
+        <div className="  text-white ">
           <div className="flex p-3 bg-green-500 rounded-t-xl justify-between">
             <h2>جدیدترین محصولات</h2>
             <button className="btn">
@@ -54,23 +54,22 @@ export default function Home({ products }) {
               </Link>
             </button>
           </div>
-          <div className="bg-transpartent pt-1">
-            <Slider>
-              {products.map(
-                (product, index) =>
-                  index < 10 && (
-                    <Link key={product.slug}>
-                      <SwiperSlide>
-                        <ProductItem
-                          product={product}
-                          addToCartHandler={addToCartHandler}
-                        />
-                      </SwiperSlide>
-                    </Link>
-                  )
-              )}
-            </Slider>
-          </div>
+
+          <Slider>
+            {products.map(
+              (product, index) =>
+                index < 10 && (
+                  <Link key={product.slug}>
+                    <SwiperSlide>
+                      <ProductItem
+                        product={product}
+                        addToCartHandler={addToCartHandler}
+                      />
+                    </SwiperSlide>
+                  </Link>
+                )
+            )}
+          </Slider>
         </div>
         <div className="bg-orange-500  text-white rounded-xl">
           <div className="flex p-3  justify-between">

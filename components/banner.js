@@ -9,7 +9,7 @@ export default function Banner({ desc }) {
   // };
   return (
     <>
-      <div className="bg-indigo-400 dark:bg-indigo-900   justify-center mb-3">
+      <div className="bg-indigo-400 dark:bg-indigo-900   justify-center ">
         {/* {visible && ( */}
         <div className="mx-auto max-w-7xl py-3 px-3 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center justify-between">

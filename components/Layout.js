@@ -41,14 +41,14 @@ const Layout = ({ children, title }) => {
       <div>
         <CssBaseline />
         <ToastContainer position="bottom-center" limit={1} />
-        <div className="flexmin-h-screen w-screen flex-col justify-between ">
+        <div className="flex min-h-screen w-screen flex-col justify-between ">
           <Banner link={"/"} desc={"فروش تمامی محصولات با تخفیف 80 درصدی"} />
           <header
             className="sticky z-10 top-0 p-3 backdrop-filter sm:backdrop-blur-lg  w-full mx-auto my-0 text-gray-900
-      bg-white dark:bg-black shadow-lg md:shadow-none bg-opacity-100 md:bg-opacity-60 md:dark:bg-opacity-60 dark:text-gray-100 md:firefox:bg-opacity-100 md:dark:firefox:bg-opacity-100"
+      bg-gray-200 dark:bg-gray-800 shadow-lg md:shadow-none bg-opacity-100 md:bg-opacity-60 md:dark:bg-opacity-60 dark:text-gray-100 md:firefox:bg-opacity-100 md:dark:firefox:bg-opacity-100"
           >
-            <nav className="flex  h-12 items-center px-4 justify-between ">
-              <div className="flex justify-between gap-4">
+            <nav className="flex h-12 items-center px-4 justify-between ">
+              <div className="flex justify-between gap-2">
                 <img width={25} height={20} src="/images/logo.png" alt="" />
                 <Link href="/">
                   <a className="text-gray-800 dark:text-gray-200 text-lg font-bold flex">

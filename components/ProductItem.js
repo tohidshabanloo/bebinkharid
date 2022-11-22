@@ -14,7 +14,7 @@ const ProductItem = ({ product, addToCartHandler }) => {
           />
         </a>
       </Link>
-      <div className="flex flex-col items-center justify-center p-5">
+      <div className="flex flex-col items-center justify-center p-5 bg-gray-200 dark:bg-gray-800 rounded-b-xl">
         <Link href={`/product/${product.slug}`}>
           <a>
             <h2 className="text-sm text-center">{product.name}</h2>
