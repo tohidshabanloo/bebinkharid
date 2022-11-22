@@ -14,18 +14,14 @@ const ProductItem = ({ product, addToCartHandler }) => {
           />
         </a>
       </Link>
-      <div className=" flex flex-col items-center justify-center p-5">
+      <div className="flex flex-col items-center justify-center p-5">
         <Link href={`/product/${product.slug}`}>
           <a>
-            <h2 className="text-sm text-center dark:text-gray-300">
-              {product.name}
-            </h2>
+            <h2 className="text-sm text-center">{product.name}</h2>
           </a>
         </Link>
         <p className="mb-2 text-orange-500 text-sm">{product.brand}</p>
-        <p className="text-gray-700 dark:text-gray-300 text-sm">
-          {product.price} تومان
-        </p>
+        <p className="text-green-700 text-sm">{product.price} تومان</p>
         <button
           className="primary-button text-sm text-black mt-2"
           type="button"
