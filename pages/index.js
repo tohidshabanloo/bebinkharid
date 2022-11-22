@@ -10,6 +10,7 @@ import { Store } from "../utils/Store";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { SwiperSlide } from "swiper/react";
+import ThemeChanger from "../components/ThemeChanger";
 
 // import data from "../utils/data";
 
@@ -45,7 +46,7 @@ export default function Home({ products }) {
     <>
       <Layout title="فروشگاه اینترنتی ببین خرید">
         {/* original code */}
-        <div className="bg-green-500 text-white  rounded-xl">
+        <div className="bg-green-500 dark:bg-red-200 text-white  rounded-xl">
           <div className="flex p-3  justify-between">
             <h2>جدیدترین محصولات</h2>
             <button className="btn">
