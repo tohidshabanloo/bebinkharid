@@ -48,18 +48,20 @@ const Layout = ({ children, title }) => {
       <div className="flexmin-h-screen w-screen flex-col justify-between ">
         <Banner link={"/"} desc={"فروش تمامی محصولات با تخفیف 80 درصدی"} />
         <header>
-          <nav className="flex  h-12 items-center px-4 justify-between shadow-md">
+          <nav className="  flex  h-12 items-center px-4 justify-between shadow-md">
             <div className="flex justify-between gap-4">
               <img width={25} height={20} src="/images/logo.png" alt="" />
               <Link href="/">
-                <a className="text-lg font-bold flex">ببین خرید</a>
+                <a className="dark:text-white text-lg font-bold flex">
+                  ببین خرید
+                </a>
               </Link>
             </div>
 
             <div className="flex gap-4 px-4">
               <ThemeChanger />
               <Link href="/cart">
-                <a className="flex col mt-2">
+                <a className="dark:text-gray-400 flex col mt-2">
                   {cartItemsCount > 0 && (
                     <span className="ml-0 mt-1 rounded-full bg-red-600 px-2 py-1 text-xs font-bold text-white">
                       {cartItemsCount}
@@ -71,7 +73,7 @@ const Layout = ({ children, title }) => {
                     viewBox="0 0 24 24"
                     strokeWidth={1.5}
                     stroke="currentColor"
-                    className="w-5 h-5"
+                    className="dark:text-gray-400 w-5 h-5"
                   >
                     <path
                       strokeLinecap="round"
@@ -84,7 +86,9 @@ const Layout = ({ children, title }) => {
               </Link>
 
               {status === "loading" ? (
-                <div className="flex col mt-2">پردازش ...</div>
+                <div className="dark:text-gray-400 flex col mt-2">
+                  پردازش ...
+                </div>
               ) : session?.user ? (
                 <div className="flex col mt-2 z-10 ">
                   <Menu as="div" className="relative inline-block  ">
@@ -132,7 +136,7 @@ const Layout = ({ children, title }) => {
                             viewBox="0 0 24 24"
                             strokeWidth="1.5"
                             stroke="currentColor"
-                            className="w-6 h-6 ml-1"
+                            className="dark:text-gray-400 w-6 h-6 ml-1"
                           >
                             <path
                               strokeLinecap="round"
@@ -155,7 +159,7 @@ const Layout = ({ children, title }) => {
                             viewBox="0 0 24 24"
                             strokeWidth="1.5"
                             stroke="currentColor"
-                            className="w-6 h-6  ml-1"
+                            className="dark:text-gray-400 w-6 h-6  ml-1"
                           >
                             <path
                               strokeLinecap="round"
@@ -194,14 +198,14 @@ const Layout = ({ children, title }) => {
                 </div>
               ) : (
                 <Link href="/login">
-                  <a className="flex col mt-2">
+                  <a className="dark:text-gray-400 flex col mt-2">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
                       strokeWidth={1.5}
                       stroke="currentColor"
-                      className="w-5 h-5"
+                      className="dark:text-gray-400 w-5 h-5"
                     >
                       <path
                         strokeLinecap="round"
@@ -218,7 +222,7 @@ const Layout = ({ children, title }) => {
         </header>
         <main className="container m-auto mt-4 px-4">{children}</main>
 
-        <footer className="h-10 justify-between items-center shadow-inner bg-green-50  pt-2">
+        <footer className="dark:bg-gray-900 h-10 justify-between items-center shadow-inner bg-green-50  pt-2">
           <div className="flex justify-between">
             <div className="mr-10">فروشگاه اینترنتی ببین خرید</div>
             <div className="ml-10">

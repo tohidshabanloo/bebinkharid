@@ -46,8 +46,8 @@ export default function Home({ products }) {
     <>
       <Layout title="فروشگاه اینترنتی ببین خرید">
         {/* original code */}
-        <div className="bg-green-500 dark:bg-red-200 text-white  rounded-xl">
-          <div className="flex p-3  justify-between">
+        <div className=" dark:text-white  rounded-xl ">
+          <div className="flex p-3 bg-green-500 justify-between">
             <h2>جدیدترین محصولات</h2>
             <button className="btn">
               <Link href="/latest" passHref>
@@ -55,17 +55,19 @@ export default function Home({ products }) {
               </Link>
             </button>
           </div>
-          <div className="bg-white pt-1">
+          <div className=" pt-1">
             <Slider>
               {products.map(
                 (product, index) =>
                   index < 10 && (
                     <Link key={product.slug}>
                       <SwiperSlide>
-                        <ProductItem
-                          product={product}
-                          addToCartHandler={addToCartHandler}
-                        />
+                        <div className=" bg-gray-200 dark:bg-gray-800  rounded-xl">
+                          <ProductItem
+                            product={product}
+                            addToCartHandler={addToCartHandler}
+                          />
+                        </div>
                       </SwiperSlide>
                     </Link>
                   )
@@ -73,8 +75,8 @@ export default function Home({ products }) {
             </Slider>
           </div>
         </div>
-        <div className="bg-orange-500 text-white rounded-xl">
-          <div className="flex p-3  justify-between">
+        <div className=" dark:text-white rounded-xl">
+          <div className="flex p-3 bg-orange-500 justify-between">
             <h2> پرفروش ترین محصولات مردانه</h2>
             <button className="btn">
               <Link href="/latest" passHref>
@@ -82,17 +84,19 @@ export default function Home({ products }) {
               </Link>
             </button>
           </div>
-          <div className="bg-white pt-1">
+          <div className=" pt-1">
             <Slider>
               {filterForMan.map(
                 (product, index) =>
                   index < 10 && (
                     <Link key={product.slug}>
                       <SwiperSlide>
-                        <ProductItem
-                          product={product}
-                          addToCartHandler={addToCartHandler}
-                        />
+                        <div className=" bg-gray-200 dark:bg-gray-800  rounded-xl">
+                          <ProductItem
+                            product={product}
+                            addToCartHandler={addToCartHandler}
+                          />
+                        </div>
                       </SwiperSlide>
                     </Link>
                   )
@@ -100,8 +104,8 @@ export default function Home({ products }) {
             </Slider>
           </div>
         </div>
-        <div className="bg-pink-500 text-white rounded-xl">
-          <div className="flex p-3  justify-between">
+        <div className=" dark:text-white rounded-xl">
+          <div className="bg-pink-500 flex p-3  justify-between">
             <h2> پرفروش ترین محصولات زنانه</h2>
             <button className="btn">
               <Link href="/latest" passHref>
@@ -109,17 +113,19 @@ export default function Home({ products }) {
               </Link>
             </button>
           </div>
-          <div className="bg-white pt-1">
+          <div className=" pt-1">
             <Slider>
               {filterForWoman.map(
                 (product, index) =>
                   index < 10 && (
                     <Link key={product.slug}>
                       <SwiperSlide>
-                        <ProductItem
-                          product={product}
-                          addToCartHandler={addToCartHandler}
-                        />
+                        <div className=" bg-gray-200 dark:bg-gray-800  rounded-xl">
+                          <ProductItem
+                            product={product}
+                            addToCartHandler={addToCartHandler}
+                          />
+                        </div>
                       </SwiperSlide>
                     </Link>
                   )
