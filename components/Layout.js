@@ -62,7 +62,9 @@ const Layout = ({ children, title }) => {
                   checked={darkMode}
                   onChange={darkModeChangeHandler}
                 ></Switch> */}
-                <ThemeChanger />
+                <div className="mt-1">
+                  <ThemeChanger />
+                </div>
                 <Link href="/cart">
                   <a className="text-gray-800 dark:text-gray-200 flex col mt-2">
                     {cartItemsCount > 0 && (
