@@ -9,6 +9,7 @@ import { signOut, useSession } from "next-auth/react";
 import "react-toastify/dist/ReactToastify.css";
 import DropdownLink from "./DropdownLink";
 import Cookies from "js-cookie";
+import ThemeChanger from "../components/ThemeChanger";
 
 import { CssBaseline } from "@material-ui/core";
 import Banner from "./banner";
@@ -56,6 +57,7 @@ const Layout = ({ children, title }) => {
                   checked={darkMode}
                   onChange={darkModeChangeHandler}
                 ></Switch> */}
+                <ThemeChanger />
                 <Link href="/cart">
                   <a className="flex col mt-2">
                     {cartItemsCount > 0 && (

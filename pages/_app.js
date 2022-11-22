@@ -4,25 +4,28 @@ import { SessionProvider, useSession } from "next-auth/react";
 import { StoreProvide } from "../utils/Store";
 import { useRouter } from "next/router";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
+import { ThemeProvider } from "next-themes";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   return (
     <div dir="rtl">
-      <main className="container">
-        <SessionProvider session={session}>
-          <StoreProvide>
-            <PayPalScriptProvider deferLoading={true}>
-              {Component.auth ? (
-                <Auth>
+      <ThemeProvider attribute="class">
+        <main className="container">
+          <SessionProvider session={session}>
+            <StoreProvide>
+              <PayPalScriptProvider deferLoading={true}>
+                {Component.auth ? (
+                  <Auth>
+                    <Component {...pageProps} />
+                  </Auth>
+                ) : (
                   <Component {...pageProps} />
-                </Auth>
-              ) : (
-                <Component {...pageProps} />
-              )}
-            </PayPalScriptProvider>
-          </StoreProvide>
-        </SessionProvider>
-      </main>
+                )}
+              </PayPalScriptProvider>
+            </StoreProvide>
+          </SessionProvider>
+        </main>
+      </ThemeProvider>
     </div>
   );
 }
