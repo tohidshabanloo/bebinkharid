@@ -11,7 +11,7 @@ export default function Banner({ desc }) {
     <>
       <div className="bg-indigo-400 dark:bg-indigo-900   justify-center ">
         {/* {visible && ( */}
-        <div className="mx-auto max-w-7xl py-3 px-3 sm:px-6 lg:px-8">
+        <div className="hidden sm:block mx-auto max-w-7xl py-3 px-3 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center justify-between">
             <div className="flex w-0 flex-1 items-center">
               <span className="flex rounded-lg bg-red-500 p-2  animate-pulse ">
