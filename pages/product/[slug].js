@@ -45,8 +45,8 @@ export default function ProductScreen(props) {
       <div className="py-2 border border-white-200 rounded-2xl p-2 w-max mb-5 ">
         <Link href="/"> بازگشت به صفحه محصولات </Link>
       </div>
-      <div className="">
-        <div className=" md:col-span-1">
+      <div className="grid md:grid-cols-4 md:gap-3">
+        <div className=" md:col-span-2">
           <Image
             src={product.image}
             alt={product.name}
