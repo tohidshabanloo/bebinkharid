@@ -43,12 +43,17 @@ const Layout = ({ children, title }) => {
         <ToastContainer position="bottom-center" limit={1} />
         <div className="flexmin-h-screen w-screen flex-col justify-between ">
           <Banner link={"/"} desc={"فروش تمامی محصولات با تخفیف 80 درصدی"} />
-          <header>
-            <nav className="flex  h-12 items-center px-4 justify-between shadow-md">
+          <header
+            className="sticky z-10 top-0 p-3 backdrop-filter sm:backdrop-blur-lg  w-full mx-auto my-0 text-gray-900
+      bg-white dark:bg-black shadow-lg md:shadow-none bg-opacity-100 md:bg-opacity-60 md:dark:bg-opacity-60 dark:text-gray-100 md:firefox:bg-opacity-100 md:dark:firefox:bg-opacity-100"
+          >
+            <nav className="flex  h-12 items-center px-4 justify-between ">
               <div className="flex justify-between gap-4">
                 <img width={25} height={20} src="/images/logo.png" alt="" />
                 <Link href="/">
-                  <a className="text-lg font-bold flex">ببین خرید</a>
+                  <a className="text-gray-800 dark:text-gray-200 text-lg font-bold flex">
+                    ببین خرید
+                  </a>
                 </Link>
               </div>
 
@@ -59,7 +64,7 @@ const Layout = ({ children, title }) => {
                 ></Switch> */}
                 <ThemeChanger />
                 <Link href="/cart">
-                  <a className="flex col mt-2">
+                  <a className="text-gray-800 dark:text-gray-200 flex col mt-2">
                     {cartItemsCount > 0 && (
                       <span className="ml-0 mt-1 rounded-full bg-red-600 px-2 py-1 text-xs font-bold text-white">
                         {cartItemsCount}
@@ -84,19 +89,21 @@ const Layout = ({ children, title }) => {
                 </Link>
 
                 {status === "loading" ? (
-                  <div className="flex col mt-2">پردازش ...</div>
+                  <div className="text-gray-800 dark:text-gray-200 flex col mt-2">
+                    پردازش ...
+                  </div>
                 ) : session?.user ? (
                   <div className="flex col mt-2 z-10 ">
                     <Menu as="div" className="relative inline-block  ">
                       <Menu.Button className="text-orange-500">
                         {session.user.name}
                       </Menu.Button>
-                      <Menu.Items className="absolute left-0 w-56  origin-top-right rounded-2xl bg-white shadow-lg ">
+                      <Menu.Items className="absolute top-8 left-0 w-56 origin-top-right rounded-2xl bg-gray-200 dark:bg-gray-800  shadow-lg ">
                         {session.user.isAdmin && (
                           <Menu.Item>
                             <DropdownLink
                               href="/admin/dashboard"
-                              className="dropdown-link "
+                              className="text-gray-800 dark:text-gray-200 hover:bg-gray-300 rounded-t-xl dark:hover:bg-gray-900 dropdown-link "
                             >
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -124,7 +131,7 @@ const Layout = ({ children, title }) => {
                         <Menu.Item>
                           <DropdownLink
                             href="/profile"
-                            className="dropdown-link "
+                            className="text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-900 dropdown-link "
                           >
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
@@ -147,7 +154,7 @@ const Layout = ({ children, title }) => {
                         <Menu.Item>
                           <DropdownLink
                             href="/order-history"
-                            className="dropdown-link"
+                            className="text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-900 dropdown-link"
                           >
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
@@ -169,7 +176,7 @@ const Layout = ({ children, title }) => {
                         <Menu.Item>
                           <a
                             href="#"
-                            className="dropdown-link"
+                            className="text-gray-800 dark:text-gray-200 hover:bg-gray-300 rounded-b-xl dark:hover:bg-gray-900 dropdown-link"
                             onClick={logoutClickHandler}
                           >
                             <svg

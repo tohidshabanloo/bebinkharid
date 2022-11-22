@@ -9,7 +9,7 @@ export default function Banner({ desc }) {
   // };
   return (
     <>
-      <div className="bg-indigo-600 justify-center mb-3">
+      <div className="bg-indigo-400 dark:bg-indigo-900   justify-center mb-3">
         {/* {visible && ( */}
         <div className="mx-auto max-w-7xl py-3 px-3 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center justify-between">
@@ -32,7 +32,7 @@ export default function Banner({ desc }) {
                 </svg>
               </span>
 
-              <p className="ml-3 text-xm truncate font-medium text-black dark:text-white">
+              <p className="ml-3 text-xm truncate font-medium dark:text-gray-200 text-gray-200">
                 <span className="mr-3 ml-0">{desc}</span>
               </p>
             </div>
