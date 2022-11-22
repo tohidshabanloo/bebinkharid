@@ -52,7 +52,7 @@ const Layout = ({ children, title }) => {
                 </Link>
               </div>
 
-              <div className="flex gap-4 px-4">
+              <div className=" flex gap-4 px-4">
                 {/* <Switch
                   checked={darkMode}
                   onChange={darkModeChangeHandler}

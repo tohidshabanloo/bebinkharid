@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   return (
     <div dir="rtl">
       <ThemeProvider attribute="class">
-        <main className="container">
+        <main className="bg-gray-100 dark:bg-gray-900">
           <SessionProvider session={session}>
             <StoreProvide>
               <PayPalScriptProvider deferLoading={true}>

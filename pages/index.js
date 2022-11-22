@@ -45,8 +45,8 @@ export default function Home({ products }) {
     <>
       <Layout title="فروشگاه اینترنتی ببین خرید">
         {/* original code */}
-        <div className="bg-green-500 dark:bg-blue-900 text-white  rounded-xl">
-          <div className="flex p-3  justify-between">
+        <div className="  text-white  rounded-xl">
+          <div className="flex p-3 bg-green-500 rounded-t-xl justify-between">
             <h2>جدیدترین محصولات</h2>
             <button className="btn">
               <Link href="/latest" passHref>
@@ -54,7 +54,7 @@ export default function Home({ products }) {
               </Link>
             </button>
           </div>
-          <div className="bg-white pt-1">
+          <div className="bg-transpartent pt-1">
             <Slider>
               {products.map(
                 (product, index) =>
