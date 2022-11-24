@@ -18,7 +18,7 @@ a {
   /* color: inherit;
   text-decoration: none;
   */
-  @apply text-black hover:text-green-700;
+  @apply hover:text-green-700 text-gray-900 dark:text-gray-200;
 }
 
 * {
@@ -56,4 +56,3 @@ textarea {
 .dropdown-link {
   @apply flex p-2 text-black;
 }
-

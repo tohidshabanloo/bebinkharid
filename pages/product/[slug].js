@@ -21,10 +21,9 @@ export default function ProductScreen(props) {
   if (!product) {
     return (
       <Layout title="not found!">
-        <div className="text-xl  flex justify-center mt-20">
+        <div className="text-xl  flex justify-center mt-20 text-gray-900 dark:text-gray-200">
           محصول مورد نظر یافت نشد
         </div>
-        !
       </Layout>
     );
   }
@@ -42,10 +41,10 @@ export default function ProductScreen(props) {
   };
   return (
     <Layout title={product.name}>
-      <div className="py-2 border border-white-200 rounded-2xl p-2 w-max mb-5 ">
-        <Link href="/"> بازگشت به صفحه محصولات </Link>
+      <div className="py-2 border border-white-200 rounded-2xl p-2 w-max mb-5 text-gray-900 dark:text-gray-200 ">
+        <Link href="/" className=""> بازگشت به صفحه محصولات </Link>
       </div>
-      <div className="grid md:grid-cols-4 md:gap-3">
+      <div className="grid md:grid-cols-4 md:gap-3 text-gray-900 dark:text-gray-200">
         <div className=" md:col-span-2">
           <Image
             src={product.image}
