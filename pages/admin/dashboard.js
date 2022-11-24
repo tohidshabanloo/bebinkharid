@@ -84,7 +84,7 @@ function AdminDashboardScreen() {
             <li>
               <Link href="/admin/dashboard">
                 <a className="mr-4 font-bold text-gray-900 dark:text-gray-200">
-                  > داشبورد
+                  {">"} داشبورد
                 </a>
               </Link>
             </li>

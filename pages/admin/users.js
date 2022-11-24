@@ -99,7 +99,7 @@ function AdminUsersScreen() {
             <li>
               <Link href="/admin/users">
                 <a className="mr-4 font-bold text-gray-900 dark:text-gray-200">
-                  > کاربران
+                {">"} کاربران
                 </a>
               </Link>
             </li>

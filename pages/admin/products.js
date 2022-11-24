@@ -113,7 +113,7 @@ export default function AdminProdcutsScreen() {
             <li>
               <Link href="/admin/products">
                 <a className="mr-4 font-bold text-gray-900 dark:text-gray-200">
-                  > محصولات
+                  {">"} محصولات
                 </a>
               </Link>
             </li>
