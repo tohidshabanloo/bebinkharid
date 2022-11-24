@@ -38,23 +38,34 @@ export default function AdminOrderScreen() {
   }, []);
 
   return (
-    <Layout title="سفارشات کاربران">
-      <div className="grid md:grid-cols-4 md:gap-5">
+    <Layout title="سفارشات کاربران - ببین خرید">
+      <div className="grid md:grid-cols-4 md:gap-5 text-gray-900 dark:text-gray-200">
         <div>
           <ul>
             <li>
-              <Link href="/admin/dashboard">- داشبورد</Link>
-            </li>
-            <li>
-              <Link href="/admin/orders">
-                <a className="font-bold">- سفارشات</a>
+              <Link href="/admin/dashboard">
+                <a className=" text-gray-900 dark:text-gray-200">- داشبورد</a>
               </Link>
             </li>
             <li>
-              <Link href="/admin/products">- محصولات</Link>
+              <Link
+                href="/admin/orders"
+                className="text-gray-900 dark:text-gray-200"
+              >
+                <a className="mr-4 font-bold  text-gray-900 dark:text-gray-200">
+                  > سفارشات
+                </a>
+              </Link>
             </li>
             <li>
-              <Link href="/admin/users">- کاربران</Link>
+              <Link href="/admin/products">
+                <a className=" text-gray-900 dark:text-gray-200">- محصولات</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/admin/users">
+                <a className=" text-gray-900 dark:text-gray-200">- کاربران</a>
+              </Link>
             </li>
           </ul>
         </div>

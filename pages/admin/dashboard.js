@@ -78,34 +78,55 @@ function AdminDashboardScreen() {
   };
   return (
     <Layout title="داشبورد مدیر - ببین خرید">
-      <div className="grid border md:grid-cols-4 md:gap-5">
+      <div className="grid border md:grid-cols-4 md:gap-5 p-10">
         <div>
           <ul>
             <li>
               <Link href="/admin/dashboard">
-                <a className="font-bold">- داشبورد</a>
+                <a className="mr-4 font-bold text-gray-900 dark:text-gray-200">
+                  > داشبورد
+                </a>
               </Link>
             </li>
             <li>
-              <Link href="/admin/orders">- سفارشات</Link>
+              <Link
+                href="/admin/orders"
+                className="text-gray-900 dark:text-gray-200"
+              >
+                <a className="font-bold text-gray-900 dark:text-gray-200">
+                  - سفارشات
+                </a>
+              </Link>
             </li>
             <li>
-              <Link href="/admin/products">- محصولات</Link>
+              <Link href="/admin/products">
+                <a className="font-bold text-gray-900 dark:text-gray-200">
+                  - محصولات
+                </a>
+              </Link>
             </li>
             <li>
-              <Link href="/admin/users">- کاربران</Link>
+              <Link href="/admin/users">
+                <a className="font-bold text-gray-900 dark:text-gray-200">
+                  - کاربران
+                </a>
+              </Link>
             </li>
           </ul>
         </div>
-        <div className="md:col-span-3">
-          <h1 className="mb-4 text-xl">داشبورد مدیر </h1>
+        <div className="md:col-span-3 ">
+          <h1 className="mb-4 text-xl text-gray-900 dark:text-gray-200">
+            داشبورد مدیر{" "}
+          </h1>
           {loading ? (
-            <div>درحال راه اندازی...</div>
+            <div className="text-gray-900 dark:text-gray-200">
+              درحال راه اندازی...
+            </div>
           ) : error ? (
             <div className="alert-error">{error}</div>
           ) : (
             <div>
-              <div className="grid grid-cols-1 md:grid-cols-4">
+              <div className="grid grid-cols-1 md:grid-cols-4 ">
                 <div className="card m-5 p-5 text-center bg-yellow-200">
                   <p className="text-xl"> {summary.ordersPrice} تومان</p>
                   <p>فروش داشته ایم</p>
@@ -129,7 +150,9 @@ function AdminDashboardScreen() {
                   <Link href="/admin/users">مشاهده کاربران</Link>
                 </div>
               </div>
-              <h2 className="text-xl">گزارشات فروش</h2>
+              <h2 className="text-xl text-gray-900 dark:text-gray-200">
+                گزارشات فروش
+              </h2>
               <Bar
                 options={{
                   legend: { display: true, position: "right" },

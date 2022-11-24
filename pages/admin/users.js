@@ -68,29 +68,38 @@ function AdminUsersScreen() {
   };
 
   return (
-    <Layout title="کاربران سایت">
-      <div className="grid md:grid-cols-4 md:gap-5">
+    <Layout title="کاربران سایت - ببین خرید">
+      <div className="grid md:grid-cols-4 md:gap-5 text-gray-900 dark:text-gray-200">
         <div>
           <ul>
             <li>
               <Link href="/admin/dashboard">
-                <p>- داشبورد</p>
+                <a className="font-bold text-gray-900 dark:text-gray-200">
+                  - داشبورد
+                </a>
               </Link>
             </li>
             <li>
-              <Link href="/admin/orders">
-                <p>- سفارشات</p>
+              <Link
+                href="/admin/orders"
+                className="text-gray-900 dark:text-gray-200"
+              >
+                <a className="font-bold text-gray-900 dark:text-gray-200">
+                  - سفارشات
+                </a>
               </Link>
             </li>
             <li>
               <Link href="/admin/products">
-                <p>- محصولات</p>
+                <a className="font-bold text-gray-900 dark:text-gray-200">
+                  - محصولات
+                </a>
               </Link>
             </li>
             <li>
               <Link href="/admin/users">
-                <a className="font-bold">
-                  <p>- کاربران</p>
+                <a className="mr-4 font-bold text-gray-900 dark:text-gray-200">
+                  > کاربران
                 </a>
               </Link>
             </li>

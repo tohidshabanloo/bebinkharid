@@ -93,23 +93,34 @@ export default function AdminProdcutsScreen() {
     }
   };
   return (
-    <Layout title="Admin Products">
-      <div className="grid md:grid-cols-4 md:gap-5">
+    <Layout title="محصولات سایت - ببین خرید">
+      <div className="grid md:grid-cols-4 md:gap-5 text-gray-900 dark:text-gray-200">
         <div>
           <ul>
             <li>
-              <Link href="/admin/dashboard">- داشبورد</Link>
-            </li>
-            <li>
-              <Link href="/admin/orders">- سفارشات</Link>
-            </li>
-            <li>
-              <Link href="/admin/products">
-                <a className="font-bold">- محصولات</a>
+              <Link href="/admin/dashboard">
+                <a className=" text-gray-900 dark:text-gray-200">- داشبورد</a>
               </Link>
             </li>
             <li>
-              <Link href="/admin/users">- کاربران</Link>
+              <Link
+                href="/admin/orders"
+                className="text-gray-900 dark:text-gray-200"
+              >
+                <a className=" text-gray-900 dark:text-gray-200">- سفارشات</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/admin/products">
+                <a className="mr-4 font-bold text-gray-900 dark:text-gray-200">
+                  > محصولات
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/admin/users">
+                <a className=" text-gray-900 dark:text-gray-200">- کاربران</a>
+              </Link>
             </li>
           </ul>
         </div>
