@@ -78,7 +78,7 @@ function AdminDashboardScreen() {
   };
   return (
     <Layout title="داشبورد مدیر - ببین خرید">
-      <div className="grid border md:grid-cols-4 md:gap-5 p-10">
+      <div className="grid border md:grid-cols-4 md:gap-5 ">
         <div>
           <ul>
             <li>
