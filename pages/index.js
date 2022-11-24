@@ -10,6 +10,8 @@ import { Store } from "../utils/Store";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { SwiperSlide } from "swiper/react";
+import HomeSlider from "../components/HomeSlider";
+import HomeSliderMobile from "../components/HomeSliderMobile";
 
 // import data from "../utils/data";
 
@@ -45,6 +47,12 @@ export default function Home({ products }) {
     <>
       <Layout title="فروشگاه اینترنتی ببین خرید">
         {/* original code */}
+        <div className="hidden lg:block mb-4">
+          <HomeSlider />
+        </div>
+        <div className="sm:hidden md:hidden lg:hidden block mb-4">
+          <HomeSliderMobile />
+        </div>
         <div className=" ">
           <div className="flex p-3 bg-gray-200 text-gray-800 dark:bg-gray-800  dark:text-gray-200 rounded-t-xl justify-between">
             <h2>جدیدترین محصولات</h2>
