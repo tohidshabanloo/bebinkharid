@@ -81,10 +81,17 @@ export default function Home({ products }) {
         </div>
         <div className="">
           <div className="flex p-3 bg-gray-200 text-gray-800 dark:bg-gray-800  dark:text-gray-200 rounded-t-xl justify-between">
-            <h2> پرفروش ترین محصولات مردانه</h2>
+            <Link href="/shop/man" passHref>
+              <div className="bg-red-500 p-2 rounded-lg text-white cursor-pointer">
+                مردانه{" "}
+              </div>
+            </Link>
+            <h2 className="mt-2"> پرفروش ترین محصولات مردانه</h2>
             <button className="btn">
               <Link href="/shop/man" passHref>
-                <h4>نمایش همه ...</h4>
+                <h4 className="bg-red-500 p-2 rounded-lg text-white">
+                  نمایش همه ...
+                </h4>
               </Link>
             </button>
           </div>
@@ -108,10 +115,17 @@ export default function Home({ products }) {
         </div>
         <div className="">
           <div className="flex p-3 bg-gray-200 text-gray-800 dark:bg-gray-800  dark:text-gray-200 rounded-t-xl justify-between">
-            <h2> پرفروش ترین محصولات زنانه</h2>
+            <Link href="/shop/woman" passHref>
+              <div className="bg-red-500 p-2 rounded-lg text-white cursor-pointer">
+                زنانه{" "}
+              </div>
+            </Link>
+            <h2 className="mt-2"> پرفروش ترین محصولات زنانه</h2>
             <button className="btn">
               <Link href="/shop/woman" passHref>
-                <h4>نمایش همه ...</h4>
+                <h4 className="bg-red-500 p-2 rounded-lg text-white">
+                  نمایش همه ...
+                </h4>
               </Link>
             </button>
           </div>
