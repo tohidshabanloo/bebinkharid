@@ -43,13 +43,16 @@ export default function LoginScreen() {
   return (
     <Layout title={"ورود"}>
       <form
-        className="mx-auto max-w-screen-md pr-20 border p-10 "
+        className="mx-auto max-w-screen-sm pr-15 border p-10 rounded-2xl "
         onSubmit={handleSubmit(submitHandler)}
       >
-        <h1 className="mb-4 text-xl">فرم ورود</h1>
-        <div className="mb-4">
+        <h1 className="mb-4 text-xl text-gray-900 dark:text-gray-200">
+          فرم ورود
+        </h1>
+        <div className="mb-4 text-gray-900 dark:text-gray-200">
           <lable htmlFor="email"> ایمیل</lable>
           <input
+            dir="ltr"
             type="email"
             {...register("email", {
               required: "لطفا ایمیل خود را وارد کنید",
@@ -58,7 +61,7 @@ export default function LoginScreen() {
                 message: "لطفا یک ایمیل صحیح وارد کنید",
               },
             })}
-            className="w-full mt-2"
+            className="w-full mt-2 "
             id="email"
             autoFocus
           ></input>
@@ -66,9 +69,10 @@ export default function LoginScreen() {
             <div className="text-red-500 pt-2">{errors.email.message}</div>
           )}
         </div>
-        <div className="mb-4">
+        <div className="mb-4 text-gray-900 dark:text-gray-200">
           <lable htmlFor="password"> رمز ورود</lable>
           <input
+            dir="ltr"
             type="password"
             {...register("password", {
               required: "Please enter password",
@@ -85,7 +89,7 @@ export default function LoginScreen() {
         <div className="mb-4">
           <button className="primary-button text-black"> ورود</button>
         </div>
-        <div className="mb-4">
+        <div className="mb-4 mt-20 text-gray-900 dark:text-gray-200">
           {" "}
           آیا ثبت نام نکرده اید؟ &nbsp;
           <Link href="register">
