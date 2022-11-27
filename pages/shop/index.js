@@ -43,7 +43,7 @@ export default function Home({ products }) {
 
     fetchPosts();
   }, []);
-
+  console.log(posts);
   // Get current posts
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
