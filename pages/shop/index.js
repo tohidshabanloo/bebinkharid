@@ -31,7 +31,7 @@ export default function Home({ products }) {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(18);
+  const [postsPerPage] = useState(9);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -62,43 +62,67 @@ export default function Home({ products }) {
           تمامی محصولات
         </h1>
         {/* original code */}
-        <div className="grid md:grid-cols-6 gap-2 ">
-          {currentPosts.map((product) => (
-            // eslint-disable-next-line react/jsx-key
-            <div className="card ">
-              <Link href={`/product/${product.slug}`}>
-                <a>
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className=" rounded shadow"
-                  />
-                </a>
-              </Link>
-              <div className="flex flex-col  items-center justify-center p-5  bg-gray-200 dark:bg-gray-800 rounded-b-xl">
+        <div className="grid grid-cols-5 gap-4">
+          <div className="col-span-1 hidden lg:block text-gray-900 dark:text-gray-200">
+            <ul>
+              <h1 className="font-bold mb-6 ">دسته بندی محصولات</h1>
+              <h1 className="mr-2 font-bold text-green-500 ">
+                - تمامی محصولات
+              </h1>
+              <ul>
+                <ul className="mr-2 ">
+                  <Link href="/shop/man" passHref>
+                    <div className=" cursor-pointer">- مردانه </div>
+                  </Link>
+                </ul>
+                <ul className="mr-2 ">
+                  {" "}
+                  <Link href="/shop/woman" passHref>
+                    <div className=" cursor-pointer">- زنانه </div>
+                  </Link>
+                </ul>
+              </ul>
+            </ul>
+          </div>
+
+          <div className="grid col-span-5 lg:col-span-4  col-end-6 md:grid-cols-3 gap-2 ">
+            {currentPosts.map((product) => (
+              // eslint-disable-next-line react/jsx-key
+              <div className="card ">
                 <Link href={`/product/${product.slug}`}>
                   <a>
-                    <h2 className="text-gray-800  dark:text-gray-200 text-xs text-center md:text-sm">
-                      {product.name}
-                    </h2>
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className=" rounded shadow"
+                    />
                   </a>
                 </Link>
-                <p className="mb-2 text-orange-500 text-xs md:text-sm">
-                  {product.brand}
-                </p>
-                <p className="text-gray-800 dark:text-gray-200 font-bold text-xs md:text-sm">
-                  {product.price} تومان
-                </p>
-                <button
-                  className="primary-button text-xs md:text-sm text-black mt-2"
-                  type="button"
-                  onClick={() => addToCartHandler(product)}
-                >
-                  افزودن به سبد
-                </button>
+                <div className="flex flex-col  items-center justify-center p-5  bg-gray-200 dark:bg-gray-800 rounded-b-xl">
+                  <Link href={`/product/${product.slug}`}>
+                    <a>
+                      <h2 className="text-gray-800  dark:text-gray-200 text-xs text-center md:text-sm">
+                        {product.name}
+                      </h2>
+                    </a>
+                  </Link>
+                  <p className="mb-2 text-orange-500 text-xs md:text-sm">
+                    {product.brand}
+                  </p>
+                  <p className="text-gray-800 dark:text-gray-200 font-bold text-xs md:text-sm">
+                    {product.price} تومان
+                  </p>
+                  <button
+                    className="primary-button text-xs md:text-sm text-black mt-2"
+                    type="button"
+                    onClick={() => addToCartHandler(product)}
+                  >
+                    افزودن به سبد
+                  </button>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
         <Pagination
           postsPerPage={postsPerPage}

@@ -41,45 +41,73 @@ export default function Home({ products }) {
         <h1 className="text-xl py-4 flex justify-center font-bold text-gray-900 dark:text-gray-200">
           تمامی محصولات مردانه
         </h1>
-        <div className="grid md:grid-cols-6 gap-2 ">
-          {filterForMan.map(
-            (product, index) =>
-              index < 50 && (
-                <div className="card ">
-                  <Link href={`/product/${product.slug}`}>
-                    <a>
-                      <img
-                        src={product.image}
-                        alt={product.name}
-                        className=" rounded shadow"
-                      />
-                    </a>
+        <div className="grid grid-cols-5 gap-4">
+          <div className="col-span-1 hidden lg:block text-gray-900 dark:text-gray-200">
+            <ul>
+              <h1 className="font-bold mb-6">دسته بندی محصولات</h1>
+              <Link href="/shop" passHref>
+                <h1 className="mr-2 font-bold cursor-pointer ">
+                  - تمامی محصولات
+                </h1>
+              </Link>
+              <ul>
+                <ul className="mr-2 ">
+                  <Link href="/shop/man" passHref>
+                    <div className="text-green-500 ">
+                      - مردانه{" "}
+                    </div>
                   </Link>
-                  <div className="flex flex-col  items-center justify-center p-5  bg-gray-200 dark:bg-gray-800 rounded-b-xl">
+                </ul>
+                <ul className="mr-2 ">
+                  {" "}
+                  <Link href="/shop/woman" passHref>
+                    <div className=" cursor-pointer">- زنانه </div>
+                  </Link>
+                </ul>
+              </ul>
+            </ul>
+          </div>
+
+          <div className="grid col-span-5 lg:col-span-4  col-end-6 md:grid-cols-3 gap-2  ">
+            {filterForMan.map(
+              (product, index) =>
+                index < 50 && (
+                  <div className="card ">
                     <Link href={`/product/${product.slug}`}>
                       <a>
-                        <h2 className="text-gray-800  dark:text-gray-200 text-xs text-center md:text-sm">
-                          {product.name}
-                        </h2>
+                        <img
+                          src={product.image}
+                          alt={product.name}
+                          className=" rounded shadow"
+                        />
                       </a>
                     </Link>
-                    <p className="mb-2 text-orange-500 text-xs md:text-sm">
-                      {product.brand}
-                    </p>
-                    <p className="text-gray-800 dark:text-gray-200 font-bold text-xs md:text-sm">
-                      {product.price} تومان
-                    </p>
-                    <button
-                      className="primary-button text-xs md:text-sm text-black mt-2"
-                      type="button"
-                      onClick={() => addToCartHandler(product)}
-                    >
-                      افزودن به سبد
-                    </button>
+                    <div className="flex flex-col  items-center justify-center p-5  bg-gray-200 dark:bg-gray-800 rounded-b-xl">
+                      <Link href={`/product/${product.slug}`}>
+                        <a>
+                          <h2 className="text-gray-800  dark:text-gray-200 text-xs text-center md:text-sm">
+                            {product.name}
+                          </h2>
+                        </a>
+                      </Link>
+                      <p className="mb-2 text-orange-500 text-xs md:text-sm">
+                        {product.brand}
+                      </p>
+                      <p className="text-gray-800 dark:text-gray-200 font-bold text-xs md:text-sm">
+                        {product.price} تومان
+                      </p>
+                      <button
+                        className="primary-button text-xs md:text-sm text-black mt-2"
+                        type="button"
+                        onClick={() => addToCartHandler(product)}
+                      >
+                        افزودن به سبد
+                      </button>
+                    </div>
                   </div>
-                </div>
-              )
-          )}
+                )
+            )}
+          </div>
         </div>
       </Layout>
     </>

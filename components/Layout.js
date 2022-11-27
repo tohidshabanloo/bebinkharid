@@ -56,7 +56,36 @@ const Layout = ({ children, title }) => {
                   </a>
                 </Link>
               </div>
+              <div className="hidden lg:block">
+                <div className="flex gap-6  ">
+                  <Link href="/">
+                    <div className="cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-700 rounded-lg p-3 px-5">
+                      صفحه اصلی
+                    </div>
+                  </Link>
+                  <Link href="/shop">
+                    <div className="cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-700 rounded-lg p-3 px-5">
+                      تمامی محصولات
+                    </div>
+                  </Link>
+                  <Link href="/shop/man">
+                    <div className="cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-700 rounded-lg p-3 px-5">
+                      مردانه
+                    </div>
+                  </Link>
 
+                  <Link href="/shop/woman">
+                    <div className="cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-700 rounded-lg p-3 px-5">
+                      زنانه
+                    </div>
+                  </Link>
+                  <Link href="/about">
+                    <div className="cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-700 rounded-lg p-3 px-5">
+                      درباره ما
+                    </div>
+                  </Link>
+                </div>
+              </div>
               <div className=" flex gap-4 px-4">
                 {/* <Switch
                   checked={darkMode}
