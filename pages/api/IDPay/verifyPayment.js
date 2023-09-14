@@ -1,16 +1,15 @@
-const axios = require("axios").default;
-const dotenv = require('dotenv')
-dotenv.config()
-const  {updatePaymentService } = require('../../services');
+/* eslint-disable prettier/prettier */
+import axios from "axios";
+import Router from "next/router";
 
-const callback = async (req, res) => {
+export default async function favoritesAPI(req, res) {
   try {
-
     if (req.body.status === 10) {
       let params = {
         headers: {
-          "X-API-KEY": process.env.API_KEY,
-          "X-SANDBOX": 1,
+          "Content-Type": "application/json",
+          "X-API-KEY": "6a7f99eb-7c20-4412-a972-6dfb7cd253a4",
+          "X-SANDBOX": "1",
         },
         method: "post",
         url: "https://api.idpay.ir/v1.1/payment/verify",
@@ -24,8 +23,7 @@ const callback = async (req, res) => {
 
       if (verifyBuy.data.status == 100) {
         updatePaymentService.updatePayment(currentPayment, requestBuy);
-        return res.render("checkout-successful", {verifyBuy})
-
+        return res.render("checkout-successful", { verifyBuy });
       }
 
       if (verifyBuy.data.status == 101) {
@@ -34,19 +32,20 @@ const callback = async (req, res) => {
           peymnet: verifyBuy.data.payment,
         });
       } else {
-        return res.render("checkout-unsuccessful", {verifyBuy})
-
+        return res.render("checkout-unsuccessful", { verifyBuy });
       }
     } else {
-      res.json({ message: "پرداخت ناموفق", peyment: req.body });
+      // res.json({ message: "پرداخت ناموفق", peyment: req.body });
+
+      res.redirect(302, `/result/${req.body.id}`);
+      // res.redirect(307, '/support2')
+      // res.status(200);
+      // res.redirect(302, "/support2")
+      // res.redirect(302, "/support2/"+ req.body.id)
     }
   } catch (err) {
     if (err) {
       return res.status(400).send(err);
     }
   }
-}
-
-module.exports = {
-  callback
 }

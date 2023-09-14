@@ -8,6 +8,7 @@ import { useEffect, useReducer } from "react";
 import { toast } from "react-toastify";
 import Layout from "../../components/Layout";
 import { getError } from "../../utils/error";
+import { data } from "autoprefixer";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -43,6 +44,7 @@ function reducer(state, action) {
       state;
   }
 }
+
 function OrderScreen() {
   const { data: session } = useSession();
   // order/:id
@@ -84,6 +86,7 @@ function OrderScreen() {
       (order._id && order._id !== orderId)
     ) {
       fetchOrder();
+
       if (successPay) {
         dispatch({ type: "PAY_RESET" });
       }
@@ -118,6 +121,25 @@ function OrderScreen() {
     isDelivered,
     deliveredAt,
   } = order;
+
+  const router = useRouter();
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    axios
+      .post("/api/IDPay/checkout", {
+        amount: totalPrice,
+        orderId: orderId,
+        name: shippingAddress,
+      })
+      .then((response) => {
+        console.log(JSON.stringify(response.data));
+        router.push(response.data.link);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   function createOrder(data, actions) {
     return actions.order
@@ -168,6 +190,7 @@ function OrderScreen() {
     }
   }
 
+  console.log(data);
   return (
     <Layout title={`Order ${orderId}`}>
       <h1 className="mb-4 text-xl">{`سفارش شماره "${orderId}"`}</h1>
@@ -179,7 +202,7 @@ function OrderScreen() {
         <div className="grid md:grid-cols-4 md:gap-5">
           <div className="overflow-x-auto md:col-span-3">
             <div className="card  p-5">
-              <h2 className="mb-2 text-lg">ارسال به آدرس</h2>
+              <h2 className="mb-2 text-lg">ارسال بهsssss آدرس</h2>
               <div>
                 {shippingAddress.fullName}, {shippingAddress.address},{" "}
                 {shippingAddress.city}, {shippingAddress.postalCode},{" "}
@@ -280,6 +303,19 @@ function OrderScreen() {
                           onApprove={onApprove}
                           onError={onError}
                         ></PayPalButtons>
+                        <form
+                          className="mx-auto max-w-screen-md"
+                          onSubmit={submitHandler}
+                          onApprove={onApprove}
+                          onError={onError}
+                        >
+                          <button
+                            type="submit"
+                            className="flex w-full flex-row justify-center gap-2 rounded-md border border-transparent bg-gray-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                          >
+                            <div>آیدی پی</div>
+                          </button>
+                        </form>
                       </div>
                     )}
                     {loadingPay && <div>Loading...</div>}
