@@ -42,7 +42,12 @@ const Layout = ({ children, title }) => {
         <CssBaseline />
         <ToastContainer position="bottom-center" limit={1} />
         <div className="flex min-h-screen w-screen flex-col justify-between ">
-          <Banner link={"/"} desc={"فروش تمامی محصولات با تخفیف 80 درصدی"} />
+          <Banner
+            link={"/"}
+            desc={
+              "این فروشگاه در حالت آزمایشی می باشد (راه اندازی شده توسط React - Firebase - Redux - Cloudinary - PayPal )"
+            }
+          />
           <header
             className="sticky z-10 top-0  backdrop-filter sm:backdrop-blur-lg  w-full mx-auto my-0 text-gray-900
       bg-gray-200 dark:bg-gray-800 shadow-lg md:shadow-none bg-opacity-100 md:bg-opacity-60 md:dark:bg-opacity-60 dark:text-gray-100 md:firefox:bg-opacity-100 md:dark:firefox:bg-opacity-100"
