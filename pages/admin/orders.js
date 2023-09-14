@@ -53,7 +53,7 @@ export default function AdminOrderScreen() {
                 className="text-gray-900 dark:text-gray-200"
               >
                 <a className="mr-4 font-bold  text-gray-900 dark:text-gray-200">
-                {">"} سفارشات
+                  {">"} سفارشات
                 </a>
               </Link>
             </li>

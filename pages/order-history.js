@@ -1,16 +1,16 @@
-import axios from 'axios';
-import Link from 'next/link';
-import React, { useEffect, useReducer } from 'react';
-import Layout from '../components/Layout';
-import { getError } from '../utils/error';
+import axios from "axios";
+import Link from "next/link";
+import React, { useEffect, useReducer } from "react";
+import Layout from "../components/Layout";
+import { getError } from "../utils/error";
 
 function reducer(state, action) {
   switch (action.type) {
-    case 'FETCH_REQUEST':
-      return { ...state, loading: true, error: '' };
-    case 'FETCH_SUCCESS':
-      return { ...state, loading: false, orders: action.payload, error: '' };
-    case 'FETCH_FAIL':
+    case "FETCH_REQUEST":
+      return { ...state, loading: true, error: "" };
+    case "FETCH_SUCCESS":
+      return { ...state, loading: false, orders: action.payload, error: "" };
+    case "FETCH_FAIL":
       return { ...state, loading: false, error: action.payload };
     default:
       return state;
@@ -20,39 +20,39 @@ function OrderHistoryScreen() {
   const [{ loading, error, orders }, dispatch] = useReducer(reducer, {
     loading: true,
     orders: [],
-    error: '',
+    error: "",
   });
 
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        dispatch({ type: 'FETCH_REQUEST' });
+        dispatch({ type: "FETCH_REQUEST" });
         const { data } = await axios.get(`/api/orders/history`);
-        dispatch({ type: 'FETCH_SUCCESS', payload: data });
+        dispatch({ type: "FETCH_SUCCESS", payload: data });
       } catch (err) {
-        dispatch({ type: 'FETCH_FAIL', payload: getError(err) });
+        dispatch({ type: "FETCH_FAIL", payload: getError(err) });
       }
     };
     fetchOrders();
   }, []);
   return (
-    <Layout title="Order History">
-      <h1 className="mb-4 text-xl">Order History</h1>
+    <Layout title=" گزارشات خرید - ببین خرید">
+      <h1 className="mb-4 text-xl">گزارشات خرید</h1>
       {loading ? (
-        <div>Loading...</div>
+        <div>در حال پردازش...</div>
       ) : error ? (
         <div className="alert-error">{error}</div>
       ) : (
         <div className="overflow-x-auto">
           <table className="min-w-full">
-            <thead className="border-b">
+            <thead className="border-b ">
               <tr>
-                <th className="px-5 text-left">ID</th>
-                <th className="p-5 text-left">DATE</th>
-                <th className="p-5 text-left">TOTAL</th>
-                <th className="p-5 text-left">PAID</th>
-                <th className="p-5 text-left">DELIVERED</th>
-                <th className="p-5 text-left">ACTION</th>
+                <th className="px-5 text-right">شناسه</th>
+                <th className="p-5 text-right">تاریخ</th>
+                <th className="p-5 text-right">قیمت</th>
+                <th className="p-5 text-right">وضعیت پرداخت</th>
+                <th className="p-5 text-right">وضعیت ارسال</th>
+                <th className="p-5 text-right">جزئیات</th>
               </tr>
             </thead>
             <tbody>
@@ -64,16 +64,16 @@ function OrderHistoryScreen() {
                   <td className=" p-5 ">
                     {order.isPaid
                       ? `${order.paidAt.substring(0, 10)}`
-                      : 'not paid'}
+                      : "پرداخت نشده"}
                   </td>
-                  <td className=" p-5 ">
+                  <td className="">
                     {order.isDelivered
                       ? `${order.deliveredAt.substring(0, 10)}`
-                      : 'not delivered'}
+                      : "ارسال نشده"}
                   </td>
                   <td className=" p-5 ">
                     <Link href={`/order/${order._id}`} passHref>
-                      <a>Details</a>
+                      <a> نمایش جزئیات</a>
                     </Link>
                   </td>
                 </tr>
